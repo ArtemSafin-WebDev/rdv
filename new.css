@@ -1680,3 +1680,232 @@
     display: none;
   }
 }
+
+.integrator {
+  position: relative;
+  z-index: 1;
+  color: white;
+  margin-bottom: 12rem;
+}
+
+.integrator__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 3rem;
+  overflow: hidden;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.integrator__bg img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.integrator__content {
+  padding-top: 14rem;
+  display: flex;
+  padding-bottom: 10rem;
+}
+
+.integrator__left-col {
+  display: flex;
+  flex-direction: column;
+  width: 88rem;
+}
+
+.integrator__heading {
+  font-size: 8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.integrator__text {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin-top: 3rem;
+  max-width: 75rem;
+}
+
+.integrator__button {
+  margin-top: 4.7rem;
+  align-self: flex-start;
+}
+
+.integrator__numbers {
+  margin-top: 13.7rem;
+}
+
+.integrator__numbers-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.integrator__numbers-list-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.integrator__numbers-card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 3rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(60px);
+  aspect-ratio: 280 / 185;
+}
+
+.integrator__numbers-card-dot {
+  margin-left: auto;
+  margin-bottom: auto;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: rgba(0, 190, 228, 0.1);
+  display: grid;
+  place-items: center;
+}
+
+.integrator__numbers-card-dot::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #00bee4;
+}
+
+.integrator__numbers-card-amount {
+  font-size: 6rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: -0.3rem;
+}
+
+.integrator__numbers-card-text {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.integrator__video-wrapper {
+  width: 70rem;
+  aspect-ratio: 1 / 1;
+  margin-left: auto;
+  position: relative;
+  mix-blend-mode: screen;
+}
+
+.integrator__video-wrapper video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media all and (max-width: 640px) {
+  .integrator {
+    margin-bottom: 2rem;
+  }
+
+  .integrator__bg {
+    border-radius: 1.6rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .integrator__content {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .integrator__heading {
+    font-size: 3.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    text-indent: 1.8em;
+  }
+
+  .integrator__text {
+    margin-top: 1.6rem;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    text-align: center;
+  }
+
+  .integrator__button.integrator__button {
+    align-self: stretch;
+    margin-top: 2.4rem;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    padding: 1.6rem 3.2rem;
+    height: auto;
+    border-radius: 0.8rem;
+  }
+
+  .integrator__numbers {
+    margin-top: 3rem;
+  }
+
+  .integrator__numbers-list {
+    gap: 0.8rem;
+  }
+
+  .integrator__numbers-card {
+    border-radius: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(23.795452117919922px);
+    padding: 1.2rem;
+    padding-top: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  .integrator__numbers-card-dot {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .integrator__numbers-card-dot::before {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+
+  .integrator__numbers-card-amount {
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 100%;
+    letter-spacing: -0.16rem;
+  }
+
+  .integrator__numbers-card-text {
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+  .integrator__video-wrapper {
+    display: none;
+  }
+}
