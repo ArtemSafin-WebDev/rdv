@@ -16,3 +16,15 @@ sliders.forEach((slider) => {
     },
   });
 });
+
+// Mobile flip on click
+if (window.matchMedia("(max-width: 640px)").matches) {
+  const cards = Array.from(document.querySelectorAll(".our-team__slider-card"));
+
+  cards.forEach((card) => {
+    card.addEventListener("click", (event) => {
+      event.preventDefault();
+      card.classList.toggle("flipped");
+    });
+  });
+}
