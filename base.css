@@ -57490,6 +57490,7 @@ table ul li {
   opacity: 0;
   visibility: hidden;
   width: 30.9rem;
+  border-radius: 0.8rem;
   transition: 0.3s;
 }
 
