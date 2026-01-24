@@ -32,6 +32,12 @@
   background-color: #fff;
 }
 
+.header:not(.header--fixed) .header__burger-button {
+  background-color: #174F77;
+  border-color: #174F77;
+  color: #fff;
+}
+
 /* Переключение логотипа */
 .header:not(.header--fixed) .header__logo-img--default {
   display: none;
