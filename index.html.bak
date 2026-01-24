@@ -92,7 +92,8 @@
                     <div class="header__search">
                         <button class="header__search-button button button--icon button--grey">
                             <svg class="icon icon-search-icon">
-                                <use xlink:href="/sprite-multi.svg#search-icon">
+                                <use
+                                    xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#search-icon">
                                 </use>
                             </svg>
                         </button>
@@ -101,19 +102,22 @@
                                 type="search" name="q" placeholder="Введите запрос">
                             <div class="header__search-icon js-form-action">
                                 <svg class="icon icon-search-icon">
-                                    <use xlink:href="/sprite-multi.svg#search-icon">
+                                    <use
+                                        xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#search-icon">
                                     </use>
                                 </svg>
                             </div>
                             <button class="header__search-reset js-reset-button" type="reset">
                                 <svg class="icon icon-cross-icon">
-                                    <use xlink:href="/sprite-multi.svg#cross-icon">
+                                    <use
+                                        xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#cross-icon">
                                     </use>
                                 </svg>
                             </button>
                             <button class="header__search-reset js-close-search-button" type="reset">
                                 <svg class="icon icon-cross-icon">
-                                    <use xlink:href="/sprite-multi.svg#cross-icon">
+                                    <use
+                                        xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#cross-icon">
                                     </use>
                                 </svg>
                             </button>
@@ -124,7 +128,8 @@
                         data-request-type="3dd16968-1c80-4f63-9c59-635da55bb2d6">Оставить заявку</button>
                     <button class="header__burger-button button button--icon button--bordered" data-path="burger">
                         <svg class="icon icon-burger-icon">
-                            <use xlink:href="/sprite-multi.svg#burger-icon">
+                            <use
+                                xlink:href="/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#burger-icon">
                             </use>
                         </svg>
                     </button>
@@ -138,35 +143,40 @@
                                 <li class="header__subtab tab-active js-tab" data-href="headerSubtab255">
                                     <span class="header__subtab-text">Внедрение 1С</span>
                                     <svg class="icon icon-button-arrow">
-                                        <use xlink:href="/sprite-multi.svg#button-arrow">
+                                        <use
+                                            xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#button-arrow">
                                         </use>
                                     </svg>
                                 </li>
                                 <li class="header__subtab js-tab" data-href="headerSubtab286">
                                     <span class="header__subtab-text">Внедрение CRM и BPMS</span>
                                     <svg class="icon icon-button-arrow">
-                                        <use xlink:href="/sprite-multi.svg#button-arrow">
+                                        <use
+                                            xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#button-arrow">
                                         </use>
                                     </svg>
                                 </li>
                                 <li class="header__subtab js-tab" data-href="headerSubtab290">
                                     <span class="header__subtab-text">Проекты E-Commerce</span>
                                     <svg class="icon icon-button-arrow">
-                                        <use xlink:href="/sprite-multi.svg#button-arrow">
+                                        <use
+                                            xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#button-arrow">
                                         </use>
                                     </svg>
                                 </li>
                                 <li class="header__subtab js-tab" data-href="headerSubtab257">
                                     <span class="header__subtab-text">Поддержка и развитие систем</span>
                                     <svg class="icon icon-button-arrow">
-                                        <use xlink:href="/sprite-multi.svg#button-arrow">
+                                        <use
+                                            xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#button-arrow">
                                         </use>
                                     </svg>
                                 </li>
                                 <li class="header__subtab js-tab" data-href="headerSubtab256">
                                     <span class="header__subtab-text">Маркетплейсы</span>
                                     <svg class="icon icon-button-arrow">
-                                        <use xlink:href="/sprite-multi.svg#button-arrow">
+                                        <use
+                                            xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#button-arrow">
                                         </use>
                                     </svg>
                                 </li>
@@ -523,7 +533,8 @@
                                 <li class="header__subtab tab-active js-tab" data-href="headerSubtab384">
                                     <span class="header__subtab-text">Системы 1С</span>
                                     <svg class="icon icon-button-arrow">
-                                        <use xlink:href="/sprite-multi.svg#button-arrow">
+                                        <use
+                                            xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#button-arrow">
                                         </use>
                                     </svg>
                                 </li>
@@ -660,7 +671,8 @@
                                 <li class="header__subtab tab-active js-tab" data-href="headerSubtab311">
                                     <span class="header__subtab-text">Все проекты</span>
                                     <svg class="icon icon-button-arrow">
-                                        <use xlink:href="/sprite-multi.svg#button-arrow">
+                                        <use
+                                            xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#button-arrow">
                                         </use>
                                     </svg>
                                 </li>
@@ -978,7 +990,8 @@
                                 <li class="header__subtab tab-active js-tab" data-href="headerSubtab295">
                                     <span class="header__subtab-text">О компании</span>
                                     <svg class="icon icon-button-arrow">
-                                        <use xlink:href="/sprite-multi.svg#button-arrow">
+                                        <use
+                                            xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#button-arrow">
                                         </use>
                                     </svg>
                                 </li>
@@ -1054,7 +1067,8 @@
                                 <li class="header__subtab tab-active js-tab" data-href="headerSubtab425">
                                     <span class="header__subtab-text">Карьера</span>
                                     <svg class="icon icon-button-arrow">
-                                        <use xlink:href="/sprite-multi.svg#button-arrow">
+                                        <use
+                                            xlink:href="https://rdv-it.ru/local/templates/rdv_new_home/static/images/sprites/sprite-multi.svg#button-arrow">
                                         </use>
                                     </svg>
                                 </li>
