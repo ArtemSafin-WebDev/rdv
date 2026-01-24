@@ -1708,7 +1708,7 @@
 }
 
 .integrator__content {
-  padding-top: 14rem;
+  padding-top: 24rem;
   display: flex;
   padding-bottom: 10rem;
 }
@@ -1808,6 +1808,7 @@
   margin-left: auto;
   position: relative;
   mix-blend-mode: screen;
+  margin-top: -10rem;
 }
 
 .integrator__video-wrapper video {

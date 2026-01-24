@@ -1,0 +1,67 @@
+/* Темная версия шапки (без класса --fixed) */
+.header:not(.header--fixed) {
+  background-color: transparent;
+}
+
+.header:not(.header--fixed) .header__top {
+  border-bottom-color: rgba(214, 230, 242, 0.68);
+}
+
+.header:not(.header--fixed) .header__top-menu-link {
+  color: #fff;
+}
+
+.header:not(.header--fixed) .header__mail,
+.header:not(.header--fixed) .header__phone {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.header:not(.header--fixed) .header__bottom-menu-link {
+  color: #fff;
+}
+
+.header:not(.header--fixed) .header__logo-desc {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.header:not(.header--fixed) .header__button {
+  background-color: #174f77;
+}
+
+.header:not(.header--fixed) .header__search-button {
+  background-color: #fff;
+}
+
+/* Переключение логотипа */
+.header:not(.header--fixed) .header__logo-img--default {
+  display: none;
+}
+
+.header:not(.header--fixed) .header__logo-img--white {
+  display: block;
+}
+
+.header.header--fixed .header__logo-img--default {
+  display: block;
+}
+
+.header.header--fixed .header__logo-img--white {
+  display: none;
+}
+
+/* Переключение иконок социальных сетей */
+.header:not(.header--fixed) .socials__icon--default {
+  display: none;
+}
+
+.header:not(.header--fixed) .socials__icon--white {
+  display: block;
+}
+
+.header.header--fixed .socials__icon--default {
+  display: block;
+}
+
+.header.header--fixed .socials__icon--white {
+  display: none;
+}
