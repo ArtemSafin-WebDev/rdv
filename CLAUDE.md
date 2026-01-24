@@ -16,8 +16,13 @@ This is a vanilla HTML/CSS/JavaScript frontend project for RDV (a 1C digital sol
 ### File Structure
 
 - `index.html` - Main landing page with all sections
-- `base.css` - Base styles including font definitions and reset
+- `vendor/` - Third-party and legacy files
+  - `base.css` - Base styles including font definitions and reset
+  - `main.js` - Legacy main JavaScript file
+  - `backend.js` - Backend integration and form handling
+  - `sprite-multi.svg` - SVG icon sprite
 - `new.css` - Component-specific styles (sections, cards, sliders)
+- `white-header.css` - Styles for white/dark header variants
 - `complexApproach.js` - Tab switching functionality for the "complex approach" section
 - `ourTeamSlider.js` - Swiper slider initialization for team members
 - `img/` - All image assets (organized by section)
@@ -90,8 +95,9 @@ The project uses `<picture>` elements with responsive images:
 ### Working with Styles
 
 When modifying CSS:
-- `base.css` contains fonts, CSS custom properties, and global styles
+- `vendor/base.css` contains fonts, CSS custom properties, and global styles (legacy, avoid modifying)
 - `new.css` contains all component-specific styles organized by section
+- `white-header.css` contains styles for white/dark header color variants
 - Use rem units (10px = 1rem per project convention)
 - Maintain BEM naming convention
 - Mobile styles are defined in `@media all and (max-width: 640px)` queries
