@@ -19,7 +19,6 @@ complexApproach.forEach((element) => {
   const tabItems = Array.from(
     element.querySelectorAll(".complex-approach__tabs-item"),
   );
-  const tabsContainer = element.querySelector(".complex-approach__tabs");
 
   const setActive = (index) => {
     navBtns.forEach((btn) => btn.classList.remove("active"));
@@ -59,8 +58,8 @@ complexApproach.forEach((element) => {
     const scrollHeight = window.innerHeight * tabCount * speedMultiplier;
 
     // Set CSS variables for spacer height calculation
-    scrollSpacer.style.setProperty('--tabs-count', tabCount);
-    scrollSpacer.style.setProperty('--speed-multiplier', speedMultiplier);
+    scrollSpacer.style.setProperty("--tabs-count", tabCount);
+    scrollSpacer.style.setProperty("--speed-multiplier", speedMultiplier);
 
     // Create ScrollTrigger to track scroll progress and switch tabs
     ScrollTrigger.create({
@@ -118,8 +117,10 @@ complexApproach.forEach((element) => {
 
   // Mobile behavior (accordion with click and toggle)
   mm.add("(max-width: 640px)", () => {
+    const handlers = [];
+
     accordionBtns.forEach((btn, btnIndex) => {
-      btn.addEventListener("click", (event) => {
+      const handler = (event) => {
         event.preventDefault();
 
         // Toggle: if clicking on active tab, close it
@@ -130,7 +131,17 @@ complexApproach.forEach((element) => {
         } else {
           setActive(btnIndex);
         }
-      });
+      };
+
+      btn.addEventListener("click", handler);
+      handlers.push({ btn, handler });
     });
+
+    return () => {
+      // Cleanup: remove all event listeners
+      handlers.forEach(({ btn, handler }) => {
+        btn.removeEventListener("click", handler);
+      });
+    };
   });
 });
