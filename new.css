@@ -706,7 +706,7 @@
 
 .complex-approach__sticky-wrapper {
   position: sticky;
-  bottom: 0;
+  bottom: 3rem;
   z-index: 10;
 }
 

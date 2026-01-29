@@ -55,22 +55,22 @@ complexApproach.forEach((element) => {
 
     // Calculate heights
     const containerHeight = container.offsetHeight;
-    const scrollHeight = window.innerHeight * tabCount;
+    const scrollHeight = window.innerHeight * tabCount * 0.4;
 
     // Set height for the scroll spacer
     scrollSpacer.style.height = `${scrollHeight}px`;
 
     // Create ScrollTrigger to track scroll progress and switch tabs
     ScrollTrigger.create({
-      trigger: scrollSpacer,
-      start: "top bottom",
-      end: "bottom bottom",
+      trigger: stickyWrapper,
+      start: "bottom bottom",
+      end: () => `bottom+=${scrollHeight} bottom`,
       onUpdate: (self) => {
         // Calculate which tab should be active based on progress
         const progress = self.progress;
         const currentIndex = Math.min(
           Math.floor(progress * tabCount),
-          tabCount - 1
+          tabCount - 1,
         );
 
         // Only update if the index changed
@@ -87,7 +87,10 @@ complexApproach.forEach((element) => {
       btn.addEventListener("click", (event) => {
         event.preventDefault();
         const sectionBottom = element.offsetTop + containerHeight;
-        const targetScroll = sectionBottom - window.innerHeight + (btnIndex / tabCount) * scrollHeight;
+        const targetScroll =
+          sectionBottom -
+          window.innerHeight +
+          (btnIndex / tabCount) * scrollHeight;
 
         gsap.to(window, {
           scrollTo: targetScroll,
