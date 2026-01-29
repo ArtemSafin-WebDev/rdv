@@ -713,6 +713,7 @@
 .complex-approach__scroll-spacer {
   width: 100%;
   pointer-events: none;
+  height: calc(var(--tabs-count, 1) * var(--speed-multiplier, 1) * 100vh);
 }
 
 .complex-approach__heading {

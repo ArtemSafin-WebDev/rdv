@@ -55,10 +55,12 @@ complexApproach.forEach((element) => {
 
     // Calculate heights
     const containerHeight = container.offsetHeight;
-    const scrollHeight = window.innerHeight * tabCount * 0.4;
+    const speedMultiplier = 0.4;
+    const scrollHeight = window.innerHeight * tabCount * speedMultiplier;
 
-    // Set height for the scroll spacer
-    scrollSpacer.style.height = `${scrollHeight}px`;
+    // Set CSS variables for spacer height calculation
+    scrollSpacer.style.setProperty('--tabs-count', tabCount);
+    scrollSpacer.style.setProperty('--speed-multiplier', speedMultiplier);
 
     // Create ScrollTrigger to track scroll progress and switch tabs
     ScrollTrigger.create({
