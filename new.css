@@ -695,8 +695,24 @@
   }
 }
 
+.page-wrapper {
+  overflow: clip;
+}
+
 .complex-approach {
   margin-bottom: 16rem;
+  position: relative;
+}
+
+.complex-approach__sticky-wrapper {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.complex-approach__scroll-spacer {
+  width: 100%;
+  pointer-events: none;
 }
 
 .complex-approach__heading {
@@ -727,8 +743,6 @@
   grid-template-columns: minmax(0, 63.5rem) 1fr;
   gap: 6rem;
   margin-top: 5rem;
-  position: relative;
-  z-index: 1;
 
   background:
     radial-gradient(
@@ -933,6 +947,10 @@
     margin-bottom: 5rem;
   }
 
+  .complex-approach__sticky-wrapper {
+    position: static;
+  }
+
   .complex-approach__heading {
     font-size: 2.4rem;
     font-style: normal;
@@ -953,6 +971,7 @@
     all: revert;
     box-sizing: border-box;
     margin-top: 1.9rem;
+    position: static;
   }
 
   .complex-approach__tabs-nav {

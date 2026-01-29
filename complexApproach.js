@@ -1,3 +1,10 @@
+// Import GSAP from CDN via unpkg
+import gsap from "https://unpkg.com/gsap@3.12.5/index.js";
+import ScrollTrigger from "https://unpkg.com/gsap@3.12.5/ScrollTrigger.js";
+import ScrollToPlugin from "https://unpkg.com/gsap@3.12.5/ScrollToPlugin.js";
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
 const complexApproach = Array.from(
   document.querySelectorAll(".complex-approach"),
 );
@@ -12,6 +19,7 @@ complexApproach.forEach((element) => {
   const tabItems = Array.from(
     element.querySelectorAll(".complex-approach__tabs-item"),
   );
+  const tabsContainer = element.querySelector(".complex-approach__tabs");
 
   const setActive = (index) => {
     navBtns.forEach((btn) => btn.classList.remove("active"));
@@ -22,16 +30,94 @@ complexApproach.forEach((element) => {
     tabItems[index]?.classList.add("active");
   };
 
-  navBtns.forEach((btn, btnIndex) => {
-    btn.addEventListener("click", (event) => {
-      event.preventDefault();
-      setActive(btnIndex);
+  // Use matchMedia to separate desktop and mobile behavior
+  const mm = gsap.matchMedia();
+
+  // Desktop behavior (scroll-triggered tabs with sticky positioning)
+  mm.add("(min-width: 641px)", () => {
+    const tabCount = tabItems.length;
+    const container = element.querySelector(".container");
+
+    // Create a scroll spacer to add height for scrolling
+    const scrollSpacer = document.createElement("div");
+    scrollSpacer.className = "complex-approach__scroll-spacer";
+
+    // Create a sticky wrapper
+    const stickyWrapper = document.createElement("div");
+    stickyWrapper.className = "complex-approach__sticky-wrapper";
+
+    // Move container into sticky wrapper
+    container.parentNode.insertBefore(stickyWrapper, container);
+    stickyWrapper.appendChild(container);
+
+    // Insert spacer before the sticky wrapper
+    stickyWrapper.parentNode.insertBefore(scrollSpacer, stickyWrapper);
+
+    // Calculate heights
+    const containerHeight = container.offsetHeight;
+    const scrollHeight = window.innerHeight * tabCount;
+
+    // Set height for the scroll spacer
+    scrollSpacer.style.height = `${scrollHeight}px`;
+
+    // Create ScrollTrigger to track scroll progress and switch tabs
+    ScrollTrigger.create({
+      trigger: scrollSpacer,
+      start: "top bottom",
+      end: "bottom bottom",
+      onUpdate: (self) => {
+        // Calculate which tab should be active based on progress
+        const progress = self.progress;
+        const currentIndex = Math.min(
+          Math.floor(progress * tabCount),
+          tabCount - 1
+        );
+
+        // Only update if the index changed
+        const stored = parseInt(scrollSpacer.dataset.currentTab) || 0;
+        if (currentIndex !== stored) {
+          scrollSpacer.dataset.currentTab = currentIndex;
+          setActive(currentIndex);
+        }
+      },
     });
+
+    // Optional: Allow clicking on desktop nav buttons to scroll to that tab
+    navBtns.forEach((btn, btnIndex) => {
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        const sectionBottom = element.offsetTop + containerHeight;
+        const targetScroll = sectionBottom - window.innerHeight + (btnIndex / tabCount) * scrollHeight;
+
+        gsap.to(window, {
+          scrollTo: targetScroll,
+          duration: 0.8,
+          ease: "power2.inOut",
+        });
+      });
+    });
+
+    return () => {
+      // Cleanup function when leaving desktop breakpoint
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // Unwrap: move container back and remove wrappers
+      if (stickyWrapper.parentNode) {
+        stickyWrapper.parentNode.insertBefore(container, stickyWrapper);
+        stickyWrapper.remove();
+      }
+      if (scrollSpacer.parentNode) {
+        scrollSpacer.remove();
+      }
+    };
   });
-  accordionBtns.forEach((btn, btnIndex) => {
-    btn.addEventListener("click", (event) => {
-      event.preventDefault();
-      setActive(btnIndex);
+
+  // Mobile behavior (accordion with click)
+  mm.add("(max-width: 640px)", () => {
+    accordionBtns.forEach((btn, btnIndex) => {
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        setActive(btnIndex);
+      });
     });
   });
 });
