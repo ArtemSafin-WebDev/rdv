@@ -116,12 +116,20 @@ complexApproach.forEach((element) => {
     };
   });
 
-  // Mobile behavior (accordion with click)
+  // Mobile behavior (accordion with click and toggle)
   mm.add("(max-width: 640px)", () => {
     accordionBtns.forEach((btn, btnIndex) => {
       btn.addEventListener("click", (event) => {
         event.preventDefault();
-        setActive(btnIndex);
+
+        // Toggle: if clicking on active tab, close it
+        if (btn.classList.contains("active")) {
+          navBtns.forEach((btn) => btn.classList.remove("active"));
+          accordionBtns.forEach((btn) => btn.classList.remove("active"));
+          tabItems.forEach((item) => item.classList.remove("active"));
+        } else {
+          setActive(btnIndex);
+        }
       });
     });
   });
