@@ -87,7 +87,8 @@ complexApproach.forEach((element) => {
     navBtns.forEach((btn, btnIndex) => {
       btn.addEventListener("click", (event) => {
         event.preventDefault();
-        const sectionBottom = element.offsetTop + containerHeight;
+        const sectionTop = element.getBoundingClientRect().top + window.scrollY;
+        const sectionBottom = sectionTop + containerHeight;
         const targetScroll =
           sectionBottom -
           window.innerHeight +
