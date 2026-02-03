@@ -20,10 +20,14 @@ complexApproach.forEach((element) => {
     element.querySelectorAll(".complex-approach__tabs-item"),
   );
 
-  const setActive = (index) => {
+  const clearActive = () => {
     navBtns.forEach((btn) => btn.classList.remove("active"));
     accordionBtns.forEach((btn) => btn.classList.remove("active"));
     tabItems.forEach((item) => item.classList.remove("active"));
+  };
+
+  const setActive = (index) => {
+    clearActive();
     navBtns[index]?.classList.add("active");
     accordionBtns[index]?.classList.add("active");
     tabItems[index]?.classList.add("active");
@@ -36,6 +40,9 @@ complexApproach.forEach((element) => {
   mm.add("(min-width: 641px)", () => {
     const tabCount = tabItems.length;
     const container = element.querySelector(".container");
+    if (!container || tabCount === 0) {
+      return () => {};
+    }
 
     // Create a scroll spacer to add height for scrolling
     const scrollSpacer = document.createElement("div");
@@ -52,59 +59,82 @@ complexApproach.forEach((element) => {
     // Insert spacer before the sticky wrapper
     stickyWrapper.parentNode.insertBefore(scrollSpacer, stickyWrapper);
 
-    // Calculate heights
-    const containerHeight = container.offsetHeight;
     const speedMultiplier = 0.4;
-    const scrollHeight = window.innerHeight * tabCount * speedMultiplier;
 
     // Set CSS variables for spacer height calculation
     scrollSpacer.style.setProperty("--tabs-count", tabCount);
     scrollSpacer.style.setProperty("--speed-multiplier", speedMultiplier);
 
+    const getIndexFromProgress = (progress) =>
+      Math.min(Math.floor(progress * tabCount), tabCount - 1);
+    const syncActive = (progress) => {
+      const currentIndex = getIndexFromProgress(progress);
+      const storedRaw = parseInt(scrollSpacer.dataset.currentTab, 10);
+      const stored = Number.isNaN(storedRaw) ? -1 : storedRaw;
+      if (currentIndex !== stored) {
+        scrollSpacer.dataset.currentTab = currentIndex;
+        setActive(currentIndex);
+      }
+    };
+
     // Create ScrollTrigger to track scroll progress and switch tabs
-    ScrollTrigger.create({
+    const scrollTrigger = ScrollTrigger.create({
       trigger: stickyWrapper,
       start: "bottom bottom",
-      end: () => `bottom+=${scrollHeight} bottom`,
+      end: () => `bottom+=${scrollSpacer.offsetHeight} bottom`,
+      invalidateOnRefresh: true,
       onUpdate: (self) => {
-        // Calculate which tab should be active based on progress
-        const progress = self.progress;
-        const currentIndex = Math.min(
-          Math.floor(progress * tabCount),
-          tabCount - 1,
-        );
-
-        // Only update if the index changed
-        const stored = parseInt(scrollSpacer.dataset.currentTab) || 0;
-        if (currentIndex !== stored) {
-          scrollSpacer.dataset.currentTab = currentIndex;
-          setActive(currentIndex);
-        }
+        syncActive(self.progress);
       },
     });
 
-    // Optional: Allow clicking on desktop nav buttons to scroll to that tab
-    navBtns.forEach((btn, btnIndex) => {
-      btn.addEventListener("click", (event) => {
-        event.preventDefault();
-        const sectionTop = element.getBoundingClientRect().top + window.scrollY;
-        const sectionBottom = sectionTop + containerHeight;
-        const targetScroll =
-          sectionBottom -
-          window.innerHeight +
-          (btnIndex / tabCount) * scrollHeight;
+    ScrollTrigger.refresh();
+    syncActive(scrollTrigger.progress);
 
+    // Optional: Allow clicking on desktop nav buttons to scroll to that tab
+    const navHandlers = [];
+    const getTargetScroll = (index) => {
+      const start = scrollTrigger.start;
+      const end = scrollTrigger.end;
+      const total = end - start;
+      const segment = (index + 0.5) / tabCount;
+      const target = start + total * segment;
+      return Math.min(end, Math.max(start, target));
+    };
+
+    navBtns.forEach((btn, btnIndex) => {
+      const handler = (event) => {
+        event.preventDefault();
+        if (!scrollTrigger) {
+          return;
+        }
+
+        ScrollTrigger.refresh();
+        const targetScroll = getTargetScroll(btnIndex);
         gsap.to(window, {
           scrollTo: targetScroll,
           duration: 0.8,
           ease: "power2.inOut",
         });
-      });
+      };
+
+      btn.addEventListener("click", handler);
+      navHandlers.push({ btn, handler });
     });
+
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+      syncActive(scrollTrigger.progress);
+    };
+    window.addEventListener("resize", handleResize);
 
     return () => {
       // Cleanup function when leaving desktop breakpoint
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      scrollTrigger.kill();
+      navHandlers.forEach(({ btn, handler }) => {
+        btn.removeEventListener("click", handler);
+      });
+      window.removeEventListener("resize", handleResize);
       // Unwrap: move container back and remove wrappers
       if (stickyWrapper.parentNode) {
         stickyWrapper.parentNode.insertBefore(container, stickyWrapper);
@@ -126,9 +156,7 @@ complexApproach.forEach((element) => {
 
         // Toggle: if clicking on active tab, close it
         if (btn.classList.contains("active")) {
-          navBtns.forEach((btn) => btn.classList.remove("active"));
-          accordionBtns.forEach((btn) => btn.classList.remove("active"));
-          tabItems.forEach((item) => item.classList.remove("active"));
+          clearActive();
         } else {
           setActive(btnIndex);
         }
