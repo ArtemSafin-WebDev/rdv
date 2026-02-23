@@ -5,12 +5,16 @@ const sections = Array.from(document.querySelectorAll(".procurement-projects"));
 
 sections.forEach((section) => {
   const tabsContainer = section.querySelector(".procurement-projects__tabs");
-  const tabs = Array.from(section.querySelectorAll(".procurement-projects__tab"));
+  const tabs = Array.from(
+    section.querySelectorAll(".procurement-projects__tab"),
+  );
   const panels = Array.from(
     section.querySelectorAll(".procurement-projects__panel"),
   );
   const tabList = section.querySelector(".procurement-projects__tabs-nav");
-  const panelsContainer = section.querySelector(".procurement-projects__panels");
+  const panelsContainer = section.querySelector(
+    ".procurement-projects__panels",
+  );
 
   if (!tabsContainer || !panelsContainer || !tabs.length || !panels.length) {
     return;
@@ -26,7 +30,9 @@ sections.forEach((section) => {
       return activeTab.dataset.tabTarget;
     }
 
-    const activePanel = panels.find((panel) => panel.classList.contains("active"));
+    const activePanel = panels.find((panel) =>
+      panel.classList.contains("active"),
+    );
     if (activePanel?.dataset.tabPanel) {
       return activePanel.dataset.tabPanel;
     }
@@ -34,7 +40,10 @@ sections.forEach((section) => {
     return tabs[0]?.dataset.tabTarget;
   };
 
-  const setActiveTab = (targetId, { keepPanelsVisible = mobileQuery.matches } = {}) => {
+  const setActiveTab = (
+    targetId,
+    { keepPanelsVisible = mobileQuery.matches } = {},
+  ) => {
     tabs.forEach((tab) => {
       const isActive = tab.dataset.tabTarget === targetId;
       tab.classList.toggle("active", isActive);
@@ -57,12 +66,29 @@ sections.forEach((section) => {
     panels.forEach((panel) => {
       const targetId = panel.dataset.tabPanel;
       const matchingTab = tabByTarget.get(targetId);
-      const logo = matchingTab?.querySelector(".procurement-projects__tab-logo");
+      const logo = matchingTab?.querySelector(
+        ".procurement-projects__tab-logo",
+      );
       const logoSrc = logo?.getAttribute("src");
+      const logoAlt = logo?.getAttribute("alt") || "";
+      const topRow = panel.querySelector(
+        ".procurement-projects__panel-top-row",
+      );
 
-      if (logoSrc) {
-        panel.style.setProperty("--procurement-panel-logo", `url("${logoSrc}")`);
+      if (!topRow || !logoSrc) {
+        return;
       }
+
+      let panelLogo = topRow.querySelector(".procurement-projects__panel-logo");
+      if (!panelLogo) {
+        panelLogo = document.createElement("img");
+        panelLogo.className = "procurement-projects__panel-logo";
+        panelLogo.decoding = "async";
+        topRow.prepend(panelLogo);
+      }
+
+      panelLogo.src = logoSrc;
+      panelLogo.alt = logoAlt;
     });
   };
 
@@ -99,6 +125,7 @@ sections.forEach((section) => {
     swiperInstance = new Swiper(tabsContainer, {
       speed: 500,
       slidesPerView: 1,
+      spaceBetween: 12,
       initialSlide: initialIndex,
       pagination: {
         el: paginationElement,
@@ -111,7 +138,9 @@ sections.forEach((section) => {
           if (!activePanel) {
             return;
           }
-          setActiveTab(activePanel.dataset.tabPanel, { keepPanelsVisible: true });
+          setActiveTab(activePanel.dataset.tabPanel, {
+            keepPanelsVisible: true,
+          });
         },
       },
     });
@@ -128,7 +157,8 @@ sections.forEach((section) => {
     }
 
     const activeTargetId =
-      panels[swiperInstance.realIndex]?.dataset.tabPanel || getCurrentTargetId();
+      panels[swiperInstance.realIndex]?.dataset.tabPanel ||
+      getCurrentTargetId();
 
     swiperInstance.destroy(true, true);
     swiperInstance = null;
@@ -177,7 +207,9 @@ sections.forEach((section) => {
       return;
     }
 
-    const activeIndex = tabs.findIndex((tab) => tab.classList.contains("active"));
+    const activeIndex = tabs.findIndex((tab) =>
+      tab.classList.contains("active"),
+    );
     if (activeIndex < 0) {
       return;
     }
@@ -204,23 +236,32 @@ sections.forEach((section) => {
 
   const initialActiveTab = tabs.find((tab) => tab.classList.contains("active"));
   if (initialActiveTab?.dataset.tabTarget) {
-    setActiveTab(initialActiveTab.dataset.tabTarget, { keepPanelsVisible: false });
+    setActiveTab(initialActiveTab.dataset.tabTarget, {
+      keepPanelsVisible: false,
+    });
   } else if (tabs[0]?.dataset.tabTarget) {
     setActiveTab(tabs[0].dataset.tabTarget, { keepPanelsVisible: false });
   }
 
   panels.forEach((panel) => {
-    const showMoreButton = panel.querySelector(".procurement-projects__tags-more");
+    const showMoreButton = panel.querySelector(
+      ".procurement-projects__tags-more",
+    );
     const tagsList = panel.querySelector(".procurement-projects__tags-list");
     if (!showMoreButton || !tagsList) {
       return;
     }
 
-    const tagsCount = tagsList.querySelectorAll(".procurement-projects__tag").length;
+    const tagsCount = tagsList.querySelectorAll(
+      ".procurement-projects__tag",
+    ).length;
 
     const syncShowMoreVisibility = () => {
       const initiallyVisibleTagsCount = mobileQuery.matches ? 2 : 3;
-      const hiddenTagsCount = Math.max(tagsCount - initiallyVisibleTagsCount, 0);
+      const hiddenTagsCount = Math.max(
+        tagsCount - initiallyVisibleTagsCount,
+        0,
+      );
       const isExpanded = tagsList.classList.contains("is-expanded");
       const buttonLabel = mobileQuery.matches ? "еще" : "Еще";
 
