@@ -1,0 +1,350 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - list [ref=e6]:
+          - listitem [ref=e7]:
+            - link "Мероприятия" [ref=e8] [cursor=pointer]:
+              - /url: /events/
+          - listitem [ref=e9]:
+            - link "Вакансии 1С" [ref=e10] [cursor=pointer]:
+              - /url: /career/vakansii/
+          - listitem [ref=e11]:
+            - link "Наш опыт" [ref=e12] [cursor=pointer]:
+              - /url: /projects/
+          - listitem [ref=e13]:
+            - link "Контакты" [ref=e14] [cursor=pointer]:
+              - /url: /company/contacts/
+        - link "info@rdv-it.ru" [ref=e15] [cursor=pointer]:
+          - /url: mailto:info@rdv-it.ru
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "VK" [ref=e18] [cursor=pointer]:
+              - /url: https://vk.com/rdvconsult
+              - img "VK" [ref=e19]
+          - listitem [ref=e20]:
+            - link "Telegram" [ref=e21] [cursor=pointer]:
+              - /url: https://t.me/rdvconsult
+              - img "Telegram" [ref=e22]
+      - generic [ref=e23]:
+        - link "Логотип компании RDV" [ref=e24] [cursor=pointer]:
+          - /url: /
+          - img "Логотип компании RDV" [ref=e25]
+        - paragraph [ref=e26]: ИТ консалтинг и комплексная автоматизация бизнеса
+        - list [ref=e27]:
+          - listitem [ref=e28]:
+            - button "Услуги" [ref=e29] [cursor=pointer]
+          - listitem [ref=e30]:
+            - button "СИСТЕМЫ" [ref=e31] [cursor=pointer]
+          - listitem [ref=e32]:
+            - button "Проекты" [ref=e33] [cursor=pointer]
+          - listitem [ref=e34]:
+            - link "Блог" [ref=e35] [cursor=pointer]:
+              - /url: /press-center/
+          - listitem [ref=e36]:
+            - button "О компании" [ref=e37] [cursor=pointer]
+          - listitem [ref=e38]:
+            - button "Карьера" [ref=e39] [cursor=pointer]
+        - button [ref=e41] [cursor=pointer]:
+          - img [ref=e42]
+        - button "Оставить заявку" [ref=e43] [cursor=pointer]
+  - generic [ref=e48]:
+    - heading "Интегратор, где бизнес в фокусе" [level=1] [ref=e49]:
+      - text: Интегратор,
+      - text: где бизнес в фокусе
+    - generic [ref=e50]: Помогаем компаниям перейти от точечной автоматизации к системному управлению на основе данных и технологий
+    - button "Оставить заявку" [ref=e51] [cursor=pointer]
+    - list [ref=e53]:
+      - listitem [ref=e54]:
+        - generic [ref=e55]:
+          - generic [ref=e57]: "2017"
+          - generic [ref=e58]: год основания
+      - listitem [ref=e59]:
+        - generic [ref=e60]:
+          - generic [ref=e62]: "500"
+          - generic [ref=e63]: млн оборот
+      - listitem [ref=e64]:
+        - generic [ref=e65]:
+          - generic [ref=e67]: "130"
+          - generic [ref=e68]: специалистов в штате
+  - generic [ref=e72]:
+    - heading "Создаем и внедряем цифровые решения на платформе 1С для корпоративного рынка" [level=2] [ref=e73]
+    - generic [ref=e74]: "Нас выбирают за комплексный подход: от анализа бизнес-процессов, консалтинга, технической экспертизы до внедрения и сопровождения решений. Мы сочетаем проверенные методологии с гибким подходом, чтобы решать не только текущие задачи, но и закладывать основу для цифрового развития компаний"
+    - generic [ref=e75]:
+      - heading "Наша ключевая экспертиза" [level=3] [ref=e76]
+      - list [ref=e77]:
+        - listitem [ref=e78]:
+          - heading "Повышение операционной эффективности" [level=4] [ref=e81]
+        - listitem [ref=e82]:
+          - heading "Повышение операционной эффективности" [level=4] [ref=e85]
+        - listitem [ref=e86]:
+          - heading "Повышение операционной эффективности" [level=4] [ref=e89]
+  - list [ref=e94]:
+    - listitem [ref=e95]:
+      - generic [ref=e97]:
+        - heading "ТОП-500 крупнейших IT-поставщиков" [level=3] [ref=e98]
+        - generic [ref=e99]: Рейтинг TAdviser 2025
+    - listitem [ref=e100]:
+      - generic [ref=e102]:
+        - heading "Победитель конкурса 1С:Проект года" [level=3] [ref=e103]
+        - generic [ref=e104]: Лучший проект апгрейда с 1С:УПП на 1С:ERP
+    - listitem [ref=e105]:
+      - generic [ref=e107]:
+        - heading "№1 в Рейтинге Рунета" [level=3] [ref=e108]
+        - generic [ref=e109]:
+          - text: по работе
+          - text: с маркетплейсами
+    - listitem [ref=e110]:
+      - generic [ref=e112]:
+        - heading "№1 в Рейтинге Рунета" [level=3] [ref=e113]
+        - generic [ref=e114]: по разработке интеграций корпоративных решений среди компаний Интеграторов
+  - generic [ref=e117]:
+    - heading "Ваша отрасль — наша специализация" [level=2] [ref=e118]
+    - generic [ref=e119]:
+      - paragraph [ref=e120]: "Эксперты в широком спектре отраслей: от производства и дистрибуции до e-commerce и финансов. Глубоко понимаем ваши операционные процессы, стратегические приоритеты и метрики результативности."
+      - paragraph [ref=e121]: В каждом проекте используем проверенные методологические концепции и внедряем решения, эффективность которых доказана нашей отраслевой практикой
+    - generic [ref=e122]:
+      - heading "ПРОИЗВОДСТВО" [level=3] [ref=e124]
+      - heading "ECOMMERCE" [level=3] [ref=e137]
+      - heading "ПИТАНИЕ" [level=3] [ref=e142]
+      - heading "РОЗНИЦА" [level=3] [ref=e148]
+      - heading "ДИСТРИБЬЮЦИЯ" [level=3] [ref=e155]
+      - heading "УСЛУГИ" [level=3] [ref=e161]
+      - heading "ТЕЛЕКОМ" [level=3] [ref=e167]
+      - heading "ИЗДАТЕЛЬСТВО" [level=3] [ref=e172]
+      - heading "НЕФТЕГАЗОВЫЙ СЕКТОР" [level=3] [ref=e177]:
+        - text: НЕФТЕГАЗОВЫЙ
+        - text: СЕКТОР
+      - heading "ЭНЕРГЕТИЧЕСКИЙ СЕКТОР" [level=3] [ref=e181]
+      - heading "ДОБЫВАЮЩАЯ ПРОМЫШЛЕННОСТЬ" [level=3] [ref=e185]
+      - heading "СТРОИТЕЛЬСТВО" [level=3] [ref=e189]
+  - generic [ref=e198]:
+    - heading "У нас — проектная методология, у бизнеса — результат в срок" [level=2] [ref=e200]
+    - generic [ref=e201]: «Запуск системы для нас — как Олимпиада. Дату ее открытия нельзя перенести без последствий, и мы это понимаем. Поэтому ценим ваше время и выстраиваем процессы вокруг четких сроков»
+    - generic [ref=e202]:
+      - generic [ref=e203]: Александр Рошаль
+      - generic [ref=e204]: Генеральный директор
+  - generic [ref=e208]:
+    - heading "Больше, чем просто IT-партнер!" [level=2] [ref=e209]
+    - list [ref=e210]:
+      - listitem [ref=e211]:
+        - generic [ref=e212]:
+          - heading "Данные становятся драйвером решений" [level=3] [ref=e214]
+          - generic [ref=e215]: "Мы верим, что компаниям необходимо становиться data-driven: принимать решения на основе данных, повышать операционную эффективность и строить четкие прогнозы"
+      - listitem [ref=e216]:
+        - generic [ref=e217]:
+          - heading "Системный фундамент для устойчивого развития" [level=3] [ref=e219]
+          - generic [ref=e220]: Чтобы создать цифровую платформу для устойчивого роста и масштабирования, соединяем ваше видение бизнеса с нашей экспертизой
+      - listitem [ref=e221]:
+        - generic [ref=e222]:
+          - heading "На каждом этапе — партнер, а не подрядчик" [level=3] [ref=e224]
+          - generic [ref=e225]: На всем пути цифровой трансформации работаем проактивно, предлагаем и аргументируем оптимальные решения
+  - generic [ref=e228]:
+    - heading "Применяем комплексный подход к цифровой трансформации" [level=2] [ref=e229]
+    - generic [ref=e230]: Помогаем компаниям перейти от точечной автоматизации к системному управлению на основе данных и технологий
+    - generic [ref=e231]:
+      - list [ref=e233]:
+        - listitem [ref=e234]:
+          - button "Готовые решения и технологии" [ref=e235] [cursor=pointer]
+        - listitem [ref=e236]:
+          - button "IT-экспертиза" [ref=e237] [cursor=pointer]
+        - listitem [ref=e238]:
+          - button "Консалтинг и методология" [ref=e239] [cursor=pointer]
+        - listitem [ref=e240]:
+          - button "Платформенные решения" [ref=e241] [cursor=pointer]
+        - listitem [ref=e242]:
+          - button "Команда, заряженная драйвом" [ref=e243] [cursor=pointer]
+      - generic [ref=e249]:
+        - paragraph [ref=e250]: Наш многолетний опыт позволил сформировать набор цифровых продуктов для 1С:ERP
+        - list [ref=e251]:
+          - listitem [ref=e252]: "RDV DM: Цифровизация производства"
+          - listitem [ref=e253]: "RDV FC: Модуль управления закрытием месяца"
+          - listitem [ref=e254]: "RDV MM: Модуль управления закупками"
+          - listitem [ref=e255]: "RDV Маркет: работа с маркетплейсами (ECOM)"
+          - listitem [ref=e256]: "RDV MI: Модуль высоконагруженных интеграций для 1C"
+        - paragraph [ref=e257]:
+          - text: Готовые IT-решения позволяют
+          - emphasis [ref=e258]:
+            - text: быстрее перейти
+            - text: к практическому использованию
+          - text: ", протестировать"
+          - text: гипотезу и увидеть как система выполняет
+          - text: бизнес-задачи заказчика
+  - generic [ref=e260]:
+    - heading "Наши проекты по автоматизации процесса закупок" [level=2] [ref=e261]
+    - generic [ref=e262]:
+      - tablist "Проекты по автоматизации процесса закупок" [ref=e263]:
+        - tab "PeWeTe" [selected] [ref=e264] [cursor=pointer]:
+          - img "PeWeTe" [ref=e265]
+        - tab "Aggreko" [ref=e266] [cursor=pointer]:
+          - img "Aggreko" [ref=e267]
+        - tab "Яндекс Лавка" [ref=e268] [cursor=pointer]:
+          - img "Яндекс Лавка" [ref=e269]
+        - tab "Золотодобывающая компания" [ref=e270] [cursor=pointer]:
+          - img "Золотодобывающая компания" [ref=e271]
+      - tabpanel "PeWeTe" [ref=e273]:
+        - generic [ref=e274]:
+          - 'heading "PeWeTe: Автоматизация централизованного казначейства и процессов МТО" [level=3] [ref=e275]'
+          - generic [ref=e276]: 50 APM
+        - paragraph [ref=e277]: Комплексный проект по внедрению 1C:МТО
+        - list [ref=e278]:
+          - listitem [ref=e279]: Процесс и консолидация сбора потребностей в план закупок
+          - listitem [ref=e280]: Размещение заказов поставщику
+          - listitem [ref=e281]: Оприходование на складе
+          - listitem [ref=e282]: Процессы оплаты и взаиморасчеты с поставщиками
+        - generic [ref=e283]:
+          - list [ref=e284]:
+            - listitem [ref=e285]: БИТ.ФИНАНС
+            - listitem [ref=e286]: 1C:ДОКУМЕНТООБОРОТ
+            - listitem [ref=e287]: ПЕРЕХОД С ЗАРУБЕЖНОЙ ERP ПЛАТФОРМЫ
+          - button "Еще 5" [ref=e288] [cursor=pointer]
+  - generic [ref=e290]:
+    - heading "Как выстроена работа в RDV MM Управление закупками для ключевых участников процесса?" [level=2] [ref=e291]:
+      - text: Как выстроена работа в RDV MM Управление закупками
+      - text: для ключевых участников процесса?
+    - generic [ref=e292]:
+      - tablist "Участники процесса в RDV MM Управление закупками" [ref=e293]:
+        - tab "Инициатор" [selected] [ref=e294] [cursor=pointer]
+        - tab "Руководитель" [ref=e295] [cursor=pointer]
+        - tab "Отдел закупок" [ref=e296] [cursor=pointer]
+        - tab "Финансовый отдел" [ref=e297] [cursor=pointer]
+        - tab "Служба безопасности" [ref=e298] [cursor=pointer]
+      - tabpanel "Инициатор" [ref=e300]:
+        - heading "Внутренний заказчик (Инициатор)" [level=3] [ref=e301]
+        - list [ref=e302]:
+          - listitem [ref=e303]: Подача заявок и оперативная обратная связь по каждому запросу в едином окне
+          - listitem [ref=e304]: Формирует графики поставок и оплат с автоматическим обновлением по данным от поставщика
+        - generic [ref=e305]:
+          - generic [ref=e306]:
+            - group "1 / 6" [ref=e307]:
+              - img "Скрин интерфейса подачи заявок инициатором" [ref=e309]
+            - group "2 / 6" [ref=e310]:
+              - img "Скрин интерфейса подбора товаров инициатором" [ref=e312]
+            - group "3 / 6" [ref=e313]:
+              - img "Скрин интерфейса подбора товаров инициатором" [ref=e315]
+            - group "4 / 6" [ref=e316]:
+              - img "Скрин интерфейса подачи заявок инициатором" [ref=e318]
+            - group "5 / 6" [ref=e319]:
+              - img "Скрин интерфейса подачи заявок инициатором" [ref=e321]
+            - group "6 / 6" [ref=e322]:
+              - img "Скрин интерфейса подбора товаров инициатором" [ref=e324]
+          - generic [ref=e325]:
+            - button "Go to slide 1" [ref=e326] [cursor=pointer]
+            - button "Go to slide 2" [ref=e327] [cursor=pointer]
+            - button "Go to slide 3" [ref=e328] [cursor=pointer]
+  - generic [ref=e332]:
+    - generic [ref=e333]:
+      - heading "Cистемный подход RDV" [level=2] [ref=e334]
+      - list [ref=e335]:
+        - listitem [ref=e336]: Сочетаем гибкость и структурированность, обеспечивая контроль над сроками, результатами и бюджетом на каждом этапе
+        - listitem [ref=e337]: Благодаря четкому планированию и фокусу на ключевых задачах мы гарантируем результат в срок без потери качества
+        - listitem [ref=e338]: Каждый этап проекта проходит под строгим контролем, что позволяет оперативно корректировать процессы и минимизировать риски
+        - listitem [ref=e339]: Прозрачность, регулярная коммуникация и поэтапная проверка результатов обеспечивают предсказуемое качество решения, которое отвечает вашим ожиданиям
+    - generic [ref=e341]:
+      - heading "Вся картина проекта до контрактации" [level=3] [ref=e343]
+      - heading "Контроль над сроками, результатами и бюджетом на каждом этапе" [level=3] [ref=e345]
+      - heading "Минимизация рисков на проекте" [level=3] [ref=e347]
+      - heading "Четкое планирование и фокус на ключевых задачах" [level=3] [ref=e349]
+      - heading "Прозрачная и регулярная коммуникация" [level=3] [ref=e351]
+      - heading "Предсказуемое качество решения" [level=3] [ref=e353]
+  - generic [ref=e355]:
+    - generic [ref=e356]:
+      - generic [ref=e357]:
+        - heading "Команда, которая говорит на языке вашего бизнеса" [level=2] [ref=e358]:
+          - text: Команда, которая говорит на языке
+          - emphasis [ref=e359]: вашего бизнеса
+        - generic [ref=e360]:
+          - paragraph [ref=e361]: "Совмещаем подход бизнес-аналитика и ИТ-архитектора. Спроектированные нами решения приносят измеримый результат: ускоряют процессы, повышают прозрачность и улучают ключевые показатели."
+          - paragraph [ref=e362]: Работаем как единая команда — от подготовки коммерческого предложения до завершения проекта. Каждый специалист видит конечную цель и фокусируется на задачах, которые влияют на скорость, точность и экономический эффект.
+          - paragraph [ref=e363]: А ещё с нами просто легко общаться :)
+      - generic [ref=e364]:
+        - generic:
+          - generic [ref=e365]: Решение
+          - generic [ref=e366]: Драйв
+          - generic [ref=e367]: Одна команда
+          - generic [ref=e368]: Опытные эксперты
+          - generic [ref=e369]: Фокус на результате
+          - generic [ref=e370]: Легкие в общении
+          - generic [ref=e371]: Видение
+    - generic [ref=e372]:
+      - generic [ref=e374]:
+        - group "1 / 8" [ref=e375]:
+          - generic [ref=e377] [cursor=pointer]:
+            - generic [ref=e378]:
+              - generic [ref=e380]: Иван
+              - generic [ref=e381]: Руководитель направления внедрения ERP
+              - generic [ref=e382]: Вел проект внедрения ERP в холдинге «Русарго». Адаптировал систему под 10 000 пользователей
+            - generic [ref=e383]:
+              - generic [ref=e384]: Вне проектов меняет клавиатуру на кроссовки
+              - generic [ref=e385]:
+                - paragraph [ref=e386]: Участник городских и горных марафонов. Преодолел путь от 5 км до полного марафона за год тренировок.
+                - paragraph [ref=e387]: Считает, что умение держать темп в спорте помогает так же уверенно доводить проекты до финиша
+        - group "2 / 8" [ref=e388]:
+          - generic [ref=e390] [cursor=pointer]:
+            - generic [ref=e391]:
+              - generic [ref=e393]: Диана
+              - generic [ref=e394]: Руководитель проектов 1С
+              - generic [ref=e395]: Вел проект внедрения ERP в холдинге «Русарго». Адаптировал систему под 10 000 пользователей
+            - generic [ref=e396]:
+              - generic [ref=e397]: Коллекционирует редкие издания книг по психологии
+              - generic [ref=e398]: В личной библиотеке более 200 книг. Применяет знания для эффективного управления командой и разрешения конфликтов.
+        - group "3 / 8" [ref=e399]:
+          - generic [ref=e401] [cursor=pointer]:
+            - generic [ref=e402]:
+              - generic [ref=e404]: Андрей
+              - generic [ref=e405]: Руководитель направления разработки
+              - generic [ref=e406]: Вел проект внедрения ERP в холдинге «Русарго». Адаптировал систему под 10 000 пользователей
+            - generic [ref=e407]:
+              - generic [ref=e408]: Создает музыку в домашней студии
+              - generic [ref=e409]: Пишет электронную музыку в жанре ambient. Несколько треков опубликованы на стриминговых платформах.
+        - group "4 / 8" [ref=e410]:
+          - generic [ref=e412] [cursor=pointer]:
+            - generic [ref=e413]:
+              - generic [ref=e415]: Алексей
+              - generic [ref=e416]: Технический архитектор 1С
+              - generic [ref=e417]: Вел проект внедрения ERP в холдинге «Русарго». Адаптировал систему под 10 000 пользователей
+            - generic [ref=e418]:
+              - generic [ref=e419]: Чемпион корпоративных шахматных турниров
+              - generic [ref=e420]: Играет в шахматы с 7 лет. Рейтинг FIDE 2100. Регулярно участвует в блиц-турнирах онлайн.
+        - group "5 / 8" [ref=e421]:
+          - generic [ref=e423] [cursor=pointer]:
+            - generic [ref=e424]:
+              - generic [ref=e426]: Дмитрий
+              - generic [ref=e427]: Главный аналитик 1С
+              - generic [ref=e428]: Вел проект внедрения ERP в холдинге «Русарго». Адаптировал систему под 10 000 пользователей
+            - generic [ref=e429]:
+              - generic [ref=e430]: Выращивает экзотические растения дома
+              - generic [ref=e431]: Коллекция включает 15 видов хищных растений. Делится опытом на форумах и в социальных сетях.
+        - group "6 / 8" [ref=e432]:
+          - generic [ref=e434] [cursor=pointer]:
+            - generic [ref=e435]:
+              - generic [ref=e437]: Анна
+              - generic [ref=e438]: Ведущий аналитик 1С
+              - generic [ref=e439]: Вел проект внедрения ERP в холдинге «Русарго». Адаптировал систему под 10 000 пользователей
+            - generic [ref=e440]:
+              - generic [ref=e441]: Мастер каллиграфии и леттеринга
+              - generic [ref=e442]: Проводит мастер-классы по современной каллиграфии. Создает персонализированные открытки для друзей и коллег.
+        - group "7 / 8" [ref=e443]:
+          - generic [ref=e445] [cursor=pointer]:
+            - generic [ref=e446]:
+              - generic [ref=e448]: Анастасия
+              - generic [ref=e449]: Главный аналитик 1С
+              - generic [ref=e450]: Вел проект внедрения ERP в холдинге «Русарго». Адаптировал систему под 10 000 пользователей
+            - generic [ref=e451]:
+              - generic [ref=e452]: Профессиональный фотограф-любитель
+              - generic [ref=e453]: Специализируется на городской и уличной фотографии. Работы опубликованы в локальных выставках.
+        - group "8 / 8" [ref=e454]:
+          - generic [ref=e456] [cursor=pointer]:
+            - generic [ref=e457]:
+              - generic [ref=e459]: Павел
+              - generic [ref=e460]: Главный разработчик 1С
+              - generic [ref=e461]: Вел проект внедрения ERP в холдинге «Русарго». Адаптировал систему под 10 000 пользователей
+            - generic [ref=e462]:
+              - generic [ref=e463]: Увлекается астрофотографией
+              - generic [ref=e464]: Снимает звездное небо с телескопом. В коллекции фотографии галактик и туманностей, сделанные из Подмосковья.
+      - generic [ref=e465]:
+        - button "Go to slide 1" [ref=e466]
+        - button "Go to slide 2" [ref=e467] [cursor=pointer]
+        - button "Go to slide 3" [ref=e468] [cursor=pointer]
+        - button "Go to slide 4" [ref=e469] [cursor=pointer]
+        - button "Go to slide 5" [ref=e470] [cursor=pointer]

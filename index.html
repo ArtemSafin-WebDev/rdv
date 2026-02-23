@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/vendor/base.css">
     <link rel="stylesheet" href="/new.css">
     <link rel="stylesheet" href="/procurement-projects.css">
+    <link rel="stylesheet" href="/process-participants.css">
     <link rel="stylesheet" href="/white-header.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -23,6 +24,7 @@
     <script src="/ourTeamSlider.js" type="module"></script>
     <script src="/ourSpecialization.js" type="module"></script>
     <script src="/procurementProjects.js" type="module"></script>
+    <script src="/processParticipants.js" type="module"></script>
 
 </head>
 
@@ -2209,6 +2211,251 @@
                                     <li class="procurement-projects__tag">ПЛАНИРОВАНИЕ ПОТРЕБНОСТЕЙ</li>
                                 </ul>
                                 <button class="procurement-projects__tags-more" type="button">Еще 5</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="process-participants">
+            <div class="container">
+                <h2 class="process-participants__heading">
+                    Как выстроена работа в RDV MM Управление закупками<br>для ключевых участников процесса?
+                </h2>
+                <div class="process-participants__tabs">
+                    <div class="process-participants__tabs-nav" role="tablist"
+                        aria-label="Участники процесса в RDV MM Управление закупками">
+                        <button class="process-participants__tab active" type="button" role="tab"
+                            id="process-participants-tab-initiator" aria-controls="process-participants-panel-initiator"
+                            aria-selected="true" data-tab-target="initiator">
+                            Инициатор
+                        </button>
+                        <button class="process-participants__tab" type="button" role="tab"
+                            id="process-participants-tab-manager" aria-controls="process-participants-panel-manager"
+                            aria-selected="false" data-tab-target="manager" tabindex="-1">
+                            Руководитель
+                        </button>
+                        <button class="process-participants__tab" type="button" role="tab"
+                            id="process-participants-tab-procurement"
+                            aria-controls="process-participants-panel-procurement" aria-selected="false"
+                            data-tab-target="procurement" tabindex="-1">
+                            Отдел закупок
+                        </button>
+                        <button class="process-participants__tab" type="button" role="tab"
+                            id="process-participants-tab-finance" aria-controls="process-participants-panel-finance"
+                            aria-selected="false" data-tab-target="finance" tabindex="-1">
+                            Финансовый отдел
+                        </button>
+                        <button class="process-participants__tab" type="button" role="tab"
+                            id="process-participants-tab-security" aria-controls="process-participants-panel-security"
+                            aria-selected="false" data-tab-target="security" tabindex="-1">
+                            Служба безопасности
+                        </button>
+                    </div>
+                    <div class="process-participants__panels">
+                        <article class="process-participants__panel active" role="tabpanel"
+                            id="process-participants-panel-initiator"
+                            aria-labelledby="process-participants-tab-initiator" data-tab-panel="initiator">
+                            <h3 class="process-participants__panel-title">Внутренний заказчик (Инициатор)</h3>
+                            <ul class="process-participants__panel-list">
+                                <li class="process-participants__panel-list-item">
+                                    Подача заявок и оперативная обратная связь по каждому запросу в едином окне
+                                </li>
+                                <li class="process-participants__panel-list-item">
+                                    Формирует графики поставок и оплат с автоматическим обновлением по данным от
+                                    поставщика
+                                </li>
+                            </ul>
+                            <div class="process-participants__slider swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/initiator-1-2x.webp"
+                                                alt="Скрин интерфейса подачи заявок инициатором">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/initiator-2-2x.webp"
+                                                alt="Скрин интерфейса подбора товаров инициатором">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/initiator-2-2x.webp"
+                                                alt="Скрин интерфейса подбора товаров инициатором">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/initiator-1-2x.webp"
+                                                alt="Скрин интерфейса подачи заявок инициатором">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/initiator-1-2x.webp"
+                                                alt="Скрин интерфейса подачи заявок инициатором">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/initiator-2-2x.webp"
+                                                alt="Скрин интерфейса подбора товаров инициатором">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-participants__pagination"></div>
+                            </div>
+                        </article>
+                        <article class="process-participants__panel" role="tabpanel"
+                            id="process-participants-panel-manager" aria-labelledby="process-participants-tab-manager"
+                            data-tab-panel="manager" hidden>
+                            <h3 class="process-participants__panel-title">Руководитель</h3>
+                            <ul class="process-participants__panel-list">
+                                <li class="process-participants__panel-list-item">
+                                    Анализирует консолидированные данные по потребностям в режиме онлайн и оперативно
+                                    согласовывает заявки
+                                </li>
+                                <li class="process-participants__panel-list-item">
+                                    Доступ к детализированной отчетности сокращает ручной труд и ускоряет принятие
+                                    решений
+                                </li>
+                            </ul>
+                            <div class="process-participants__slider swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/2.webp"
+                                                alt="Скрин интерфейса согласования заявок руководителем">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-participants__pagination"></div>
+                            </div>
+                        </article>
+                        <article class="process-participants__panel" role="tabpanel"
+                            id="process-participants-panel-procurement"
+                            aria-labelledby="process-participants-tab-procurement" data-tab-panel="procurement" hidden>
+                            <h3 class="process-participants__panel-title">Сотрудник отдела закупок</h3>
+                            <ul class="process-participants__panel-list">
+                                <li class="process-participants__panel-list-item">
+                                    Управляет всеми этапами закупки в едином рабочем месте: от подбора аналогов и
+                                    проведения тендеров до рассылки запросов на КП и сбора предложений
+                                </li>
+                                <li class="process-participants__panel-list-item">
+                                    Формирует графики поставок и оплат с автоматическим обновлением по данным от
+                                    поставщика
+                                </li>
+                            </ul>
+                            <div class="process-participants__slider swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/3.webp"
+                                                alt="Скрин интерфейса закупочной команды">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/4.webp"
+                                                alt="Скрин интерфейса закупочной команды">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/3.webp"
+                                                alt="Скрин интерфейса закупочной команды">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/4.webp"
+                                                alt="Скрин интерфейса закупочной команды">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/3.webp"
+                                                alt="Скрин интерфейса закупочной команды">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/4.webp"
+                                                alt="Скрин интерфейса закупочной команды">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="process-participants__pagination"></div>
+                            </div>
+                        </article>
+                        <article class="process-participants__panel" role="tabpanel"
+                            id="process-participants-panel-finance" aria-labelledby="process-participants-tab-finance"
+                            data-tab-panel="finance" hidden>
+                            <h3 class="process-participants__panel-title">Сотрудник финансового отдела</h3>
+                            <ul class="process-participants__panel-list">
+                                <li class="process-participants__panel-list-item">
+                                    Использует платежный календарь и инструменты автоматизации
+                                </li>
+                                <li class="process-participants__panel-list-item">
+                                    Система помогает формировать платежи по графику, пересчитывает их при изменении даты
+                                    поставки и снижает риск кассовых разрывов
+                                </li>
+                            </ul>
+                            <div class="process-participants__slider swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/5.webp"
+                                                alt="Скрин интерфейса финансового согласования">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/6.webp"
+                                                alt="Скрин интерфейса финансового согласования">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/5.webp"
+                                                alt="Скрин интерфейса финансового согласования">
+                                        </div>
+                                    </div>
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/6.webp"
+                                                alt="Скрин интерфейса финансового согласования">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-participants__pagination"></div>
+                            </div>
+                        </article>
+                        <article class="process-participants__panel" role="tabpanel"
+                            id="process-participants-panel-security" aria-labelledby="process-participants-tab-security"
+                            data-tab-panel="security" hidden>
+                            <h3 class="process-participants__panel-title">Сотрудник службы безопасности</h3>
+                            <ul class="process-participants__panel-list">
+                                <li class="process-participants__panel-list-item">
+                                    Имеет доступ к единой базе недобросовестных поставщиков, что снижает риски и
+                                    защищает компанию от невыгодных или рискованных контрактов
+                                </li>
+
+                            </ul>
+                            <div class="process-participants__slider swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="process-participants__slide swiper-slide">
+                                        <div class="process-participants__image-card">
+                                            <img src="/img/process-participants/7.webp"
+                                                alt="Скрин интерфейса проверки контрагентов">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-participants__pagination"></div>
                             </div>
                         </article>
                     </div>
