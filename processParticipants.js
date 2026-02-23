@@ -42,7 +42,6 @@ sections.forEach((section) => {
       slidesPerView: 1,
       slidesPerGroup: 1,
       spaceBetween: 32,
-      watchOverflow: true,
       breakpoints: {
         641: {
           slidesPerView: 2,
@@ -61,17 +60,22 @@ sections.forEach((section) => {
     return swiper;
   };
 
-  const setActiveTab = (targetId) => {
-    if (mobileQuery.matches) {
-      panels.forEach((panel) => {
-        panel.classList.add("active");
-        panel.hidden = false;
-        const swiper = initSwiper(panel);
-        swiper?.update();
-      });
-      return;
-    }
+  const updateSwiper = (swiper) => {
+    if (!swiper) return;
+    swiper.updateSize();
+    swiper.updateSlides();
+    swiper.update();
+  };
 
+  const showAllPanels = () => {
+    panels.forEach((panel) => {
+      panel.classList.add("active");
+      panel.hidden = false;
+      updateSwiper(initSwiper(panel));
+    });
+  };
+
+  const setActiveTab = (targetId) => {
     tabs.forEach((tab) => {
       const isActive = tab.dataset.tabTarget === targetId;
       tab.classList.toggle("active", isActive);
@@ -79,14 +83,18 @@ sections.forEach((section) => {
       tab.setAttribute("tabindex", isActive ? "0" : "-1");
     });
 
+    if (mobileQuery.matches) {
+      showAllPanels();
+      return;
+    }
+
     panels.forEach((panel) => {
       const isActive = panel.dataset.tabPanel === targetId;
       panel.classList.toggle("active", isActive);
       panel.hidden = !isActive;
 
       if (isActive) {
-        const swiper = initSwiper(panel);
-        swiper?.update();
+        updateSwiper(initSwiper(panel));
       }
     });
   };
@@ -155,16 +163,6 @@ sections.forEach((section) => {
   }
 
   const handleViewportChange = () => {
-    if (mobileQuery.matches) {
-      panels.forEach((panel) => {
-        panel.classList.add("active");
-        panel.hidden = false;
-        const swiper = initSwiper(panel);
-        swiper?.update();
-      });
-      return;
-    }
-
     const activeTab = tabs.find((tab) => tab.classList.contains("active"));
     const targetId = activeTab?.dataset.tabTarget ?? initialTarget;
 
@@ -173,9 +171,5 @@ sections.forEach((section) => {
     }
   };
 
-  if (typeof mobileQuery.addEventListener === "function") {
-    mobileQuery.addEventListener("change", handleViewportChange);
-  } else {
-    mobileQuery.addListener(handleViewportChange);
-  }
+  mobileQuery.addEventListener("change", handleViewportChange);
 });
