@@ -64,24 +64,23 @@ sections.forEach((section) => {
 
   panels.forEach((panel) => {
     const showMoreButton = panel.querySelector(".procurement-projects__tags-more");
-    if (!showMoreButton) {
+    const tagsList = panel.querySelector(".procurement-projects__tags-list");
+    if (!showMoreButton || !tagsList) {
       return;
     }
-
-    const getHiddenTags = () =>
-      Array.from(panel.querySelectorAll(".procurement-projects__tag--hidden"));
+    const tagsCount = tagsList.querySelectorAll(".procurement-projects__tag").length;
+    const initiallyVisibleTagsCount = 3;
 
     const syncShowMoreVisibility = () => {
-      showMoreButton.hidden = getHiddenTags().length === 0;
+      const isExpanded = tagsList.classList.contains("is-expanded");
+      showMoreButton.hidden = tagsCount <= initiallyVisibleTagsCount || isExpanded;
     };
 
     syncShowMoreVisibility();
 
     showMoreButton.addEventListener("click", () => {
-      getHiddenTags()
-        .forEach((tag) => tag.classList.remove("procurement-projects__tag--hidden"));
-
-      showMoreButton.hidden = true;
+      tagsList.classList.add("is-expanded");
+      syncShowMoreVisibility();
     });
   });
 });

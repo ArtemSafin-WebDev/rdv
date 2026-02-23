@@ -140,6 +140,16 @@
 .procurement-projects__tags {
   margin-top: 3.8rem;
   display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+}
+
+.procurement-projects__tags-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1.6rem;
@@ -166,7 +176,8 @@
   text-transform: uppercase;
 }
 
-.procurement-projects__tag--hidden {
+.procurement-projects__tags-list:not(.is-expanded)
+  .procurement-projects__tag:nth-child(n + 4) {
   display: none;
 }
 
