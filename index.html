@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/vendor/base.css">
     <link rel="stylesheet" href="/new.css">
+    <link rel="stylesheet" href="/procurement-projects.css">
     <link rel="stylesheet" href="/white-header.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -21,6 +22,7 @@
     <script src="/complexApproach.js" type="module"></script>
     <script src="/ourTeamSlider.js" type="module"></script>
     <script src="/ourSpecialization.js" type="module"></script>
+    <script src="/procurementProjects.js" type="module"></script>
 
 </head>
 
@@ -1986,6 +1988,208 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="procurement-projects">
+            <div class="container">
+                <h2 class="procurement-projects__heading">
+                    Наши проекты по автоматизации процесса закупок
+                </h2>
+                <div class="procurement-projects__tabs">
+                    <div class="procurement-projects__tabs-nav" role="tablist"
+                        aria-label="Проекты по автоматизации процесса закупок">
+                        <button class="procurement-projects__tab active" type="button" role="tab" aria-selected="true"
+                            aria-controls="procurement-panel-pewete" id="procurement-tab-pewete"
+                            data-tab-target="pewete">
+                            <img src="/img/procurement-logos/pewete.svg" alt="PeWeTe"
+                                class="procurement-projects__tab-logo">
+                        </button>
+                        <button class="procurement-projects__tab" type="button" role="tab" aria-selected="false"
+                            aria-controls="procurement-panel-aggreko" id="procurement-tab-aggreko"
+                            data-tab-target="aggreko">
+                            <img src="/img/procurement-logos/aggreko.svg" alt="Aggreko"
+                                class="procurement-projects__tab-logo">
+                        </button>
+                        <button class="procurement-projects__tab" type="button" role="tab" aria-selected="false"
+                            aria-controls="procurement-panel-lavka" id="procurement-tab-lavka" data-tab-target="lavka">
+                            <img src="/img/procurement-logos/lavka.svg" alt="Яндекс Лавка"
+                                class="procurement-projects__tab-logo">
+                        </button>
+                        <button class="procurement-projects__tab" type="button" role="tab" aria-selected="false"
+                            aria-controls="procurement-panel-rudnik" id="procurement-tab-rudnik"
+                            data-tab-target="rudnik">
+                            <img src="/img/procurement-logos/gold-company.svg" alt="Золотодобывающая компания"
+                                class="procurement-projects__tab-logo">
+                        </button>
+                    </div>
+                    <div class="procurement-projects__panels">
+                        <article class="procurement-projects__panel active" role="tabpanel"
+                            id="procurement-panel-pewete" aria-labelledby="procurement-tab-pewete"
+                            data-tab-panel="pewete">
+                            <div class="procurement-projects__panel-top-row">
+                                <h3 class="procurement-projects__panel-title">
+                                    PeWeTe: Автоматизация централизованного казначейства и процессов МТО
+                                </h3>
+                                <div class="procurement-projects__panel-apm">50 APM</div>
+                            </div>
+                            <p class="procurement-projects__panel-subtitle">Комплексный проект по внедрению 1C:МТО</p>
+                            <ul class="procurement-projects__panel-list">
+                                <li class="procurement-projects__panel-list-item">
+                                    Процесс и консолидация сбора потребностей в план закупок
+                                </li>
+                                <li class="procurement-projects__panel-list-item">
+                                    Размещение заказов поставщику
+                                </li>
+                                <li class="procurement-projects__panel-list-item">
+                                    Оприходование на складе
+                                </li>
+                                <li class="procurement-projects__panel-list-item">
+                                    Процессы оплаты и взаиморасчеты с поставщиками
+                                </li>
+                            </ul>
+                            <div class="procurement-projects__tags">
+                                <span class="procurement-projects__tag">БИТ.ФИНАНС</span>
+                                <span class="procurement-projects__tag">1C:ДОКУМЕНТООБОРОТ</span>
+                                <span class="procurement-projects__tag">ПЕРЕХОД С ЗАРУБЕЖНОЙ ERP ПЛАТФОРМЫ</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">1C:МТО</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">1C:ERP
+                                    УХ</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">УПРАВЛЕНИЕ
+                                    ЗАКУПКАМИ</span>
+                                <span
+                                    class="procurement-projects__tag procurement-projects__tag--hidden">БЮДЖЕТИРОВАНИЕ</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">УПРАВЛЕНИЕ
+                                    КАЗНАЧЕЙСТВОМ</span>
+                                <button class="procurement-projects__tags-more" type="button">Еще 5</button>
+                            </div>
+                        </article>
+                        <article class="procurement-projects__panel" role="tabpanel" id="procurement-panel-aggreko"
+                            aria-labelledby="procurement-tab-aggreko" data-tab-panel="aggreko" hidden>
+                            <div class="procurement-projects__panel-top-row">
+                                <h3 class="procurement-projects__panel-title">
+                                    Aggreko: Централизация закупок и контроль исполнения договоров
+                                </h3>
+                                <div class="procurement-projects__panel-apm">32 APM</div>
+                            </div>
+                            <p class="procurement-projects__panel-subtitle">Автоматизация закупочных процедур и учета
+                                МТО
+                            </p>
+                            <ul class="procurement-projects__panel-list">
+                                <li class="procurement-projects__panel-list-item">
+                                    Сквозной процесс согласования заявок и планов закупок
+                                </li>
+                                <li class="procurement-projects__panel-list-item">
+                                    Контроль сроков и статусов исполнения заказов
+                                </li>
+                                <li class="procurement-projects__panel-list-item">
+                                    Единая витрина взаиморасчетов с поставщиками
+                                </li>
+                                <li class="procurement-projects__panel-list-item">
+                                    Аналитика затрат и отклонений по закупочным категориям
+                                </li>
+                            </ul>
+                            <div class="procurement-projects__tags">
+                                <span class="procurement-projects__tag">1C:ERP</span>
+                                <span class="procurement-projects__tag">КАЗНАЧЕЙСТВО</span>
+                                <span class="procurement-projects__tag">УПРАВЛЕНИЕ ДОГОВОРАМИ</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">ЭЛЕКТРОННОЕ
+                                    СОГЛАСОВАНИЕ</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">ОЦЕНКА
+                                    ПОСТАВЩИКОВ</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">БЮДЖЕТНЫЙ
+                                    КОНТРОЛЬ</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">ЗАКУПКИ
+                                    МТО</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">ФАКТ-ПЛАН
+                                    АНАЛИТИКА</span>
+                                <button class="procurement-projects__tags-more" type="button">Еще 5</button>
+                            </div>
+                        </article>
+                        <article class="procurement-projects__panel" role="tabpanel" id="procurement-panel-lavka"
+                            aria-labelledby="procurement-tab-lavka" data-tab-panel="lavka" hidden>
+                            <div class="procurement-projects__panel-top-row">
+                                <h3 class="procurement-projects__panel-title">
+                                    Яндекс Лавка: Автоматизация закупок и пополнения товарных запасов
+                                </h3>
+                                <div class="procurement-projects__panel-apm">41 APM</div>
+                            </div>
+                            <p class="procurement-projects__panel-subtitle">Проект по цифровизации операционных закупок
+                            </p>
+                            <ul class="procurement-projects__panel-list">
+                                <li class="procurement-projects__panel-list-item">
+                                    Планирование закупок по прогнозу спроса и остаткам
+                                </li>
+                                <li class="procurement-projects__panel-list-item">
+                                    Автоматическое формирование заказов поставщикам
+                                </li>
+                                <li class="procurement-projects__panel-list-item">
+                                    Контроль поставок и приемки на распределительных центрах
+                                </li>
+                                <li class="procurement-projects__panel-list-item">
+                                    Мониторинг KPI закупок в режиме реального времени
+                                </li>
+                            </ul>
+                            <div class="procurement-projects__tags">
+                                <span class="procurement-projects__tag">1C:ERP УПРАВЛЕНИЕ ЗАКУПКАМИ</span>
+                                <span class="procurement-projects__tag">ИНТЕГРАЦИЯ С BI</span>
+                                <span class="procurement-projects__tag">ПЛАН-ФАКТ АНАЛИЗ</span>
+                                <span
+                                    class="procurement-projects__tag procurement-projects__tag--hidden">АВТОЗАКАЗ</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">СНАБЖЕНИЕ
+                                    РЦ</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">КОНТРОЛЬ SLA
+                                    ПОСТАВЩИКОВ</span>
+                                <span
+                                    class="procurement-projects__tag procurement-projects__tag--hidden">ПРОГНОЗИРОВАНИЕ
+                                    СПРОСА</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">КАТЕГОРИЙНЫЙ
+                                    АНАЛИЗ</span>
+                                <button class="procurement-projects__tags-more" type="button">Еще 5</button>
+                            </div>
+                        </article>
+                        <article class="procurement-projects__panel" role="tabpanel" id="procurement-panel-rudnik"
+                            aria-labelledby="procurement-tab-rudnik" data-tab-panel="rudnik" hidden>
+                            <div class="procurement-projects__panel-top-row">
+                                <h3 class="procurement-projects__panel-title">
+                                    Золотодобывающая компания: Автоматизация МТО и договорной работы
+                                </h3>
+                                <div class="procurement-projects__panel-apm">27 APM</div>
+                            </div>
+                            <p class="procurement-projects__panel-subtitle">Оптимизация закупок для распределенной
+                                производственной структуры</p>
+                            <ul class="procurement-projects__panel-list">
+                                <li class="procurement-projects__panel-list-item">
+                                    Централизованный каталог номенклатуры и потребностей филиалов
+                                </li>
+                                <li class="procurement-projects__panel-list-item">
+                                    Контроль согласования и исполнения договоров поставки
+                                </li>
+                                <li class="procurement-projects__panel-list-item">
+                                    Прозрачность остатков, сроков поставки и плановых дефицитов
+                                </li>
+                                <li class="procurement-projects__panel-list-item">
+                                    Учет взаиморасчетов и финансового результата по категориям
+                                </li>
+                            </ul>
+                            <div class="procurement-projects__tags">
+                                <span class="procurement-projects__tag">КАТАЛОГ МТО</span>
+                                <span class="procurement-projects__tag">КОНТРОЛЬ ПОСТАВОК</span>
+                                <span class="procurement-projects__tag">УПРАВЛЕНИЕ ДОГОВОРАМИ</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">ЦЕНТРАЛИЗАЦИЯ
+                                    ЗАКУПОК</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">ПРОЗРАЧНЫЕ
+                                    ВЗАИМОРАСЧЕТЫ</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">ФИНАНСОВЫЙ
+                                    КОНТУР</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">КОНТРОЛЬ
+                                    ДЕФИЦИТОВ</span>
+                                <span class="procurement-projects__tag procurement-projects__tag--hidden">ПЛАНИРОВАНИЕ
+                                    ПОТРЕБНОСТЕЙ</span>
+                                <button class="procurement-projects__tags-more" type="button">Еще 5</button>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>

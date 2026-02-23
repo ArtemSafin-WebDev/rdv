@@ -1,0 +1,9 @@
+{
+  "viewport": "1920x1080",
+  "url": "http://127.0.0.1:5031/index.html",
+  "hiddenBefore": 5,
+  "hiddenAfter": 0,
+  "buttonVisibleBefore": true,
+  "buttonVisibleAfter": false,
+  "passed": true
+}
