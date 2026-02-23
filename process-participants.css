@@ -190,3 +190,100 @@
 .process-participants__pagination .swiper-pagination-bullet-active {
   background: #080d26;
 }
+
+@media all and (max-width: 640px) {
+  .process-participants .container {
+    padding-left: 2.1rem;
+    padding-right: 2.1rem;
+  }
+
+  .process-participants {
+    background: #ffffff;
+    padding: 3.1rem 0 2.4rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .process-participants__heading {
+    font-size: 2rem;
+    line-height: 106%;
+    letter-spacing: -0.04rem;
+  }
+
+  .process-participants__tabs {
+    margin-top: 2rem;
+  }
+
+  .process-participants__tabs-nav {
+    display: none;
+  }
+
+  .process-participants__panels {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .process-participants__panel {
+    border: 0;
+    border-radius: 1.2rem;
+    background: #f6f7fe;
+    padding: 2.4rem;
+    padding-top: 1.4rem;
+    overflow: hidden;
+  }
+
+  .process-participants__panel[hidden] {
+    display: block;
+  }
+
+  .process-participants__panel-title {
+    font-size: 1.6rem;
+    line-height: 120%;
+  }
+
+  .process-participants__panel-list {
+    margin-top: 1.6rem;
+    gap: 1.1rem;
+  }
+
+  .process-participants__panel-list-item {
+    font-size: 1.2rem;
+    line-height: normal;
+    gap: 0.6rem;
+    max-width: 31.1rem;
+    text-wrap: pretty;
+  }
+
+  .process-participants__panel-list-item::before {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.1rem;
+    background-size: contain;
+  }
+
+  .process-participants__slider {
+    margin-top: 1.6rem;
+    overflow: visible;
+  }
+
+  .process-participants__slide {
+    width: 100%;
+  }
+
+  .process-participants__image-card {
+    border-radius: 1.0786rem;
+    box-shadow: 0 0.1798rem 0.9887rem 0 rgba(6, 17, 44, 0.12);
+  }
+
+  .process-participants__slider .process-participants__pagination {
+    margin-top: 1.4rem;
+    --swiper-pagination-bullet-size: 0.6rem;
+    --swiper-pagination-bullet-horizontal-gap: 0.3rem;
+  }
+
+  .process-participants__slider
+    .process-participants__pagination.swiper-pagination-lock {
+    display: none !important;
+  }
+}

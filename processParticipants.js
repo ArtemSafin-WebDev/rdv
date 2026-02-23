@@ -11,6 +11,7 @@ sections.forEach((section) => {
   );
   const tabList = section.querySelector(".process-participants__tabs-nav");
   const swipers = new Map();
+  const mobileQuery = window.matchMedia("(max-width: 640px)");
 
   if (!tabs.length || !panels.length) {
     return;
@@ -38,9 +39,17 @@ sections.forEach((section) => {
 
     const swiper = new Swiper(sliderElement, {
       speed: 800,
-      slidesPerView: 2,
-      slidesPerGroup: 2,
-      spaceBetween: 48,
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      spaceBetween: 32,
+      watchOverflow: true,
+      breakpoints: {
+        641: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: 48,
+        },
+      },
       pagination: {
         el: paginationElement,
         clickable: true,
@@ -53,6 +62,16 @@ sections.forEach((section) => {
   };
 
   const setActiveTab = (targetId) => {
+    if (mobileQuery.matches) {
+      panels.forEach((panel) => {
+        panel.classList.add("active");
+        panel.hidden = false;
+        const swiper = initSwiper(panel);
+        swiper?.update();
+      });
+      return;
+    }
+
     tabs.forEach((tab) => {
       const isActive = tab.dataset.tabTarget === targetId;
       tab.classList.toggle("active", isActive);
@@ -74,6 +93,10 @@ sections.forEach((section) => {
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
+      if (mobileQuery.matches) {
+        return;
+      }
+
       const targetId = tab.dataset.tabTarget;
       if (!targetId) {
         return;
@@ -84,6 +107,10 @@ sections.forEach((section) => {
   });
 
   tabList?.addEventListener("keydown", (event) => {
+    if (mobileQuery.matches) {
+      return;
+    }
+
     const activeIndex = tabs.findIndex((tab) =>
       tab.classList.contains("active"),
     );
@@ -125,5 +152,30 @@ sections.forEach((section) => {
 
   if (initialTarget) {
     setActiveTab(initialTarget);
+  }
+
+  const handleViewportChange = () => {
+    if (mobileQuery.matches) {
+      panels.forEach((panel) => {
+        panel.classList.add("active");
+        panel.hidden = false;
+        const swiper = initSwiper(panel);
+        swiper?.update();
+      });
+      return;
+    }
+
+    const activeTab = tabs.find((tab) => tab.classList.contains("active"));
+    const targetId = activeTab?.dataset.tabTarget ?? initialTarget;
+
+    if (targetId) {
+      setActiveTab(targetId);
+    }
+  };
+
+  if (typeof mobileQuery.addEventListener === "function") {
+    mobileQuery.addEventListener("change", handleViewportChange);
+  } else {
+    mobileQuery.addListener(handleViewportChange);
   }
 });
