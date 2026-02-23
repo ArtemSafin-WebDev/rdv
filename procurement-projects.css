@@ -117,10 +117,19 @@
 
 .procurement-projects__panel-list--2-cols {
   max-width: 121.4rem;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: block;
+  columns: 2;
   column-gap: 0.2rem;
-  row-gap: 1.6rem;
+}
+
+.procurement-projects__panel-list--2-cols .procurement-projects__panel-list-item {
+  break-inside: avoid;
+  margin-bottom: 1.6rem;
+  text-wrap: balance;
+}
+
+.procurement-projects__panel-list--2-cols .procurement-projects__panel-list-item:last-child {
+  margin-bottom: 0;
 }
 
 .procurement-projects__panel-list-item {
@@ -308,8 +317,12 @@
 
   .procurement-projects__panel-list--2-cols {
     display: flex;
+    columns: unset;
     max-width: 31.1rem;
-    row-gap: 0;
+  }
+
+  .procurement-projects__panel-list--2-cols .procurement-projects__panel-list-item {
+    margin-bottom: 0;
   }
 
   .procurement-projects__panel-list-item {
