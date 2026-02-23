@@ -336,7 +336,7 @@
 
   .procurement-projects__panel-logo {
     display: block;
-    width: 11.7rem;
+    width: auto;
     height: 3rem;
     object-fit: contain;
     object-position: left center;
@@ -347,11 +347,12 @@
   .procurement-projects__panel-title {
     grid-column: 1 / -1;
     grid-row: 2;
-    max-width: 25.8rem;
+    max-width: none;
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 500;
     line-height: 120%;
+    text-wrap: balance;
   }
 
   .procurement-projects__panel-apm {
@@ -423,7 +424,7 @@
   }
 
   .procurement-projects__tags-list:not(.is-expanded)
-    .procurement-projects__tag:nth-child(n + 3) {
+    .procurement-projects__tag:nth-child(n + 4) {
     display: none;
   }
 

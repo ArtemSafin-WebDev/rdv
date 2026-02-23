@@ -267,7 +267,7 @@ sections.forEach((section) => {
     ).length;
 
     const syncShowMoreVisibility = () => {
-      const initiallyVisibleTagsCount = mobileQuery.matches ? 2 : 3;
+      const initiallyVisibleTagsCount = 3;
       const hiddenTagsCount = Math.max(
         tagsCount - initiallyVisibleTagsCount,
         0,
