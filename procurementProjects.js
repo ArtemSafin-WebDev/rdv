@@ -25,21 +25,9 @@ sections.forEach((section) => {
   let paginationElement = null;
   const tagSyncHandlers = [];
 
-  const getCurrentTargetId = () => {
-    const activeTab = tabs.find((tab) => tab.classList.contains("active"));
-    if (activeTab?.dataset.tabTarget) {
-      return activeTab.dataset.tabTarget;
-    }
-
-    const activePanel = panels.find((panel) =>
-      panel.classList.contains("active"),
-    );
-    if (activePanel?.dataset.tabPanel) {
-      return activePanel.dataset.tabPanel;
-    }
-
-    return tabs[0]?.dataset.tabTarget;
-  };
+  const getCurrentTargetId = () =>
+    tabs.find((tab) => tab.classList.contains("active"))?.dataset.tabTarget ??
+    tabs[0]?.dataset.tabTarget;
 
   const setActiveTab = (
     targetId,
@@ -192,7 +180,6 @@ sections.forEach((section) => {
     tabList?.removeAttribute("aria-hidden");
 
     setActiveTab(activeTargetId, { keepPanelsVisible: false });
-    syncPanelLogos();
   };
 
   tabs.forEach((tab) => {
@@ -298,12 +285,7 @@ sections.forEach((section) => {
     syncTagsButtons();
   };
 
-  syncPanelLogos();
   handleViewportChange();
 
-  if (typeof mobileQuery.addEventListener === "function") {
-    mobileQuery.addEventListener("change", handleViewportChange);
-  } else {
-    mobileQuery.addListener(handleViewportChange);
-  }
+  mobileQuery.addEventListener("change", handleViewportChange);
 });
