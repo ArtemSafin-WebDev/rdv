@@ -1,6 +1,7 @@
 import Swiper from "https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.mjs";
 
 const mobileQuery = window.matchMedia("(max-width: 640px)");
+const LAST_TAB_INDEX = 4;
 const sections = Array.from(document.querySelectorAll(".procurement-projects"));
 
 sections.forEach((section) => {
@@ -44,6 +45,15 @@ sections.forEach((section) => {
     targetId,
     { keepPanelsVisible = mobileQuery.matches } = {},
   ) => {
+    const activeIndex = tabs.findIndex((tab) => tab.dataset.tabTarget === targetId);
+    const isFirstActive = activeIndex === 0;
+    const isLastActive = activeIndex === LAST_TAB_INDEX;
+    const isMiddleActive = activeIndex > 0 && activeIndex !== LAST_TAB_INDEX;
+
+    section.classList.toggle("procurement-projects--active-first", isFirstActive);
+    section.classList.toggle("procurement-projects--active-last", isLastActive);
+    section.classList.toggle("procurement-projects--active-middle", isMiddleActive);
+
     tabs.forEach((tab) => {
       const isActive = tab.dataset.tabTarget === targetId;
       tab.classList.toggle("active", isActive);
