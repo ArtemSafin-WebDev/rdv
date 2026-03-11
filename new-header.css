@@ -200,7 +200,7 @@
   text-decoration-color: currentColor;
 }
 
-.new-header__nav-list-item:hover .new-header__nav-submenu {
+.new-header__nav-list-item.new-header__nav-list-item--submenu-open .new-header__nav-submenu {
   opacity: 1;
   visibility: inherit;
   transition:
@@ -240,7 +240,8 @@
   border-radius: 20rem;
 }
 
-.new-header__nav-list-item:hover .new-header__nav-link-text::after {
+.new-header__nav-list-item:hover .new-header__nav-link-text::after,
+.new-header__nav-list-item.new-header__nav-list-item--submenu-open .new-header__nav-link-text::after {
   opacity: 1;
 }
 
