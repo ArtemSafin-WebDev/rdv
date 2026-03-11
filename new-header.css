@@ -17,6 +17,8 @@
   --new-header-bg-color: white;
   --new-header-search-btn-color: #f5f7fd;
   --new-header-search-icon-color: #080d26;
+  --new-header-search-bg-color: white;
+  --new-header-search-border-color: #080d26;
   --new-header-cta-bg-color: #080c26;
   --new-header-cta-text-color: white;
   --new-header-accent-color: #00bee4;
@@ -528,6 +530,74 @@ body.new-header--mega-scroll-lock {
 
 .new-header__search {
   flex-shrink: 0;
+  position: relative;
+}
+
+.new-header__search-form {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0.8rem;
+  z-index: 10;
+  width: 30rem;
+  display: flex;
+  align-items: center;
+  background-color: var(--new-header-search-bg-color);
+  border: 1px solid var(--new-header-search-border-color);
+  padding-right: 1.2rem;
+  gap: 0.7rem;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s,
+    visibility 0s linear 0.2s;
+}
+
+.new-header__search-form.is-shown {
+  opacity: 1;
+  visibility: inherit;
+  transition:
+    opacity 0.2s,
+    visibility 0.2s;
+}
+
+.new-header__search-form-search-input {
+  width: 30%;
+  flex-grow: 1;
+  height: 100%;
+  padding: 0 1.2rem;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  color: #080d26;
+  padding-right: 0;
+}
+
+.new-header__search-form-search-input::placeholder {
+  color: #7896ae;
+  text-transform: uppercase;
+}
+
+.new-header__search-submit,
+.new-header__search-close {
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: grid;
+  place-items: center;
+  color: #080d26;
+}
+
+.new-header__search-submit svg {
+  width: 100%;
+  height: 100%;
+  fill: #080d26;
+}
+
+.new-header__search-close svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
 }
 
 .new-header__search-btn {
@@ -553,7 +623,7 @@ body.new-header--mega-scroll-lock {
   font-weight: 500;
   line-height: 100%;
   text-transform: uppercase;
-  padding: 1.5rem 2.4rem;
+  padding: 1.45rem 2.4rem;
   border-radius: 0.8rem;
   background-color: var(--new-header-cta-bg-color);
   color: var(--new-header-cta-text-color);
@@ -1027,5 +1097,9 @@ body.new-header--mega-scroll-lock {
     width: 1.2rem;
     height: 1.2rem;
     fill: none;
+  }
+
+  .new-header__search-form {
+    width: calc(100vw - 9.2rem);
   }
 }
