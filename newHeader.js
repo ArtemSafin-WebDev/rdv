@@ -2,6 +2,7 @@ const DESKTOP_MEDIA_QUERY = "(min-width: 641px)";
 const TOP_HIDDEN_CLASS = "new-header--top-hidden";
 const SUBMENU_OPEN_CLASS = "new-header__nav-list-item--submenu-open";
 const BODY_LOCK_CLASS = "new-header--services-scroll-lock";
+const MENU_OPEN_CLASS = "new-header-menu-open";
 const SCROLL_DELTA = 4;
 
 const header = document.querySelector(".new-header");
@@ -9,6 +10,8 @@ const header = document.querySelector(".new-header");
 if (header) {
   const desktopMediaQuery = window.matchMedia(DESKTOP_MEDIA_QUERY);
   const body = document.body;
+  const menuOpenButton = header.querySelector(".new-header__burger-btn");
+  const menuCloseButtons = Array.from(header.querySelectorAll(".new-header__menu-close"));
   let lastScrollY = window.scrollY;
   let isTicking = false;
   let syncMegaScrollLock = () => {};
@@ -45,6 +48,11 @@ if (header) {
   const onBreakpointChange = () => {
     header.classList.remove(TOP_HIDDEN_CLASS);
     lastScrollY = window.scrollY;
+
+    if (desktopMediaQuery.matches && body) {
+      body.classList.remove(MENU_OPEN_CLASS);
+    }
+
     syncMegaScrollLock();
   };
 
@@ -84,6 +92,27 @@ if (header) {
     });
     syncMegaScrollLock();
   };
+
+  const openMobileMenu = () => {
+    if (!body) return;
+    body.classList.add(MENU_OPEN_CLASS);
+  };
+
+  const closeMobileMenu = () => {
+    if (!body) return;
+    body.classList.remove(MENU_OPEN_CLASS);
+    closeAllSubmenus();
+  };
+
+  if (menuOpenButton) {
+    menuOpenButton.addEventListener("click", openMobileMenu);
+  }
+
+  if (menuCloseButtons.length) {
+    menuCloseButtons.forEach((button) => {
+      button.addEventListener("click", closeMobileMenu);
+    });
+  }
 
   if (nav && submenuItems.length) {
     nav.addEventListener("click", (event) => {
@@ -129,7 +158,7 @@ if (header) {
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
-        closeAllSubmenus();
+        closeMobileMenu();
       }
     });
   }
