@@ -597,10 +597,6 @@ body.new-header--services-scroll-lock {
     height: var(--new-header-bottom-height);
   }
 
-  .new-header__menu {
-    display: none;
-  }
-
   .new-header__logo-desc {
     display: none;
   }
@@ -656,9 +652,19 @@ body.new-header--services-scroll-lock {
     overscroll-behavior-y: none;
     background-color: var(--new-header-submenu-bg-color);
     padding: 0 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.4s,
+      visibility 0s linear 0.4s;
   }
 
-  .new-header__nav {
+  body.new-header-menu-open .new-header__menu {
+    opacity: 1;
+    visibility: inherit;
+    transition:
+      opacity 0.4s,
+      visibility 0.4s;
   }
 
   .new-header__nav-list {
