@@ -4,6 +4,7 @@ const SUBMENU_OPEN_CLASS = "new-header__nav-list-item--submenu-open";
 const BODY_LOCK_CLASS = "new-header--mega-scroll-lock";
 const MENU_OPEN_CLASS = "new-header-menu-open";
 const TOP_OFFSET_THRESHOLD = 4;
+const SEARCH_FORM_SHOWN_CLASS = "is-shown";
 
 const header = document.querySelector(".new-header");
 
@@ -12,18 +13,28 @@ if (header) {
   const body = document.body;
   const menuOpenButton = header.querySelector(".new-header__burger-btn");
   const menuCloseButtons = Array.from(header.querySelectorAll(".new-header__menu-close"));
+  const searchButton = header.querySelector(".new-header__search-btn");
+  const searchCloseButton = header.querySelector(".new-header__search-close");
+  const searchForm = header.querySelector(".new-header__search-form");
+  const searchInput = header.querySelector(".new-header__search-form-search-input");
   let isTicking = false;
   let syncMegaScrollLock = () => {};
 
+  const openSearch = () => {
+    if (!searchForm) return;
+    searchForm.classList.add(SEARCH_FORM_SHOWN_CLASS);
+    if (searchInput) {
+      searchInput.focus();
+    }
+  };
+
+  const closeSearch = () => {
+    if (!searchForm) return;
+    searchForm.classList.remove(SEARCH_FORM_SHOWN_CLASS);
+  };
+
   const updateHeaderState = () => {
     const currentScrollY = window.scrollY;
-
-    if (!desktopMediaQuery.matches) {
-      header.classList.remove(TOP_HIDDEN_CLASS);
-      isTicking = false;
-      return;
-    }
-
     header.classList.toggle(TOP_HIDDEN_CLASS, currentScrollY > TOP_OFFSET_THRESHOLD);
     isTicking = false;
   };
@@ -36,13 +47,12 @@ if (header) {
   };
 
   const onBreakpointChange = () => {
-    header.classList.remove(TOP_HIDDEN_CLASS);
-
     if (desktopMediaQuery.matches && body) {
       body.classList.remove(MENU_OPEN_CLASS);
     }
 
     syncMegaScrollLock();
+    updateHeaderState();
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -101,6 +111,14 @@ if (header) {
     menuCloseButtons.forEach((button) => {
       button.addEventListener("click", closeMobileMenu);
     });
+  }
+
+  if (searchButton) {
+    searchButton.addEventListener("click", openSearch);
+  }
+
+  if (searchCloseButton) {
+    searchCloseButton.addEventListener("click", closeSearch);
   }
 
   if (nav && submenuItems.length) {
