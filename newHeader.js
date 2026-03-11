@@ -1,7 +1,7 @@
 const DESKTOP_MEDIA_QUERY = "(min-width: 641px)";
 const TOP_HIDDEN_CLASS = "new-header--top-hidden";
 const SUBMENU_OPEN_CLASS = "new-header__nav-list-item--submenu-open";
-const BODY_LOCK_CLASS = "new-header--services-scroll-lock";
+const BODY_LOCK_CLASS = "new-header--mega-scroll-lock";
 const MENU_OPEN_CLASS = "new-header-menu-open";
 const SCROLL_DELTA = 4;
 
