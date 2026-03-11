@@ -17,6 +17,10 @@
   --new-header-cta-text-color: white;
   --new-header-accent-color: #00bee4;
   --new-header-submenu-bg-color: #f5f7fd;
+  --new-header-top-height: 7.5rem;
+  --new-header-bottom-height: calc(4.2rem + 5rem);
+  --new-header-height-expanded: calc(var(--new-header-top-height) + var(--new-header-bottom-height));
+  --new-header-height-collapsed: var(--new-header-bottom-height);
   --new-header-services-bg-color: #f5f7fd;
   --new-header-services-card-bg-color: #ffffff;
   --new-header-services-title-color: #080d26;
@@ -237,6 +241,10 @@
   background-color: var(--new-header-services-bg-color);
   border-radius: 0;
   padding: 4.4rem 0 5.2rem;
+  max-height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
 }
 
 .new-header__services-close {
@@ -499,8 +507,16 @@
 }
 
 @media all and (min-width: 641px) {
+  .new-header__nav-submenu-inner--services {
+    max-height: calc(100dvh - var(--new-header-height-expanded));
+  }
+
+  .new-header.new-header--top-hidden .new-header__nav-submenu-inner--services {
+    max-height: calc(100dvh - var(--new-header-height-collapsed));
+  }
+
   .new-header__top {
-    height: 7.5rem;
+    height: var(--new-header-top-height);
     overflow: hidden;
     transition:
       height 0.3s ease,
