@@ -3,7 +3,7 @@ const TOP_HIDDEN_CLASS = "new-header--top-hidden";
 const SUBMENU_OPEN_CLASS = "new-header__nav-list-item--submenu-open";
 const BODY_LOCK_CLASS = "new-header--mega-scroll-lock";
 const MENU_OPEN_CLASS = "new-header-menu-open";
-const SCROLL_DELTA = 4;
+const TOP_OFFSET_THRESHOLD = 4;
 
 const header = document.querySelector(".new-header");
 
@@ -12,7 +12,6 @@ if (header) {
   const body = document.body;
   const menuOpenButton = header.querySelector(".new-header__burger-btn");
   const menuCloseButtons = Array.from(header.querySelectorAll(".new-header__menu-close"));
-  let lastScrollY = window.scrollY;
   let isTicking = false;
   let syncMegaScrollLock = () => {};
 
@@ -21,20 +20,11 @@ if (header) {
 
     if (!desktopMediaQuery.matches) {
       header.classList.remove(TOP_HIDDEN_CLASS);
-      lastScrollY = currentScrollY;
       isTicking = false;
       return;
     }
 
-    if (currentScrollY <= 0) {
-      header.classList.remove(TOP_HIDDEN_CLASS);
-    } else if (currentScrollY > lastScrollY + SCROLL_DELTA) {
-      header.classList.add(TOP_HIDDEN_CLASS);
-    } else if (currentScrollY < lastScrollY - SCROLL_DELTA) {
-      header.classList.remove(TOP_HIDDEN_CLASS);
-    }
-
-    lastScrollY = currentScrollY;
+    header.classList.toggle(TOP_HIDDEN_CLASS, currentScrollY > TOP_OFFSET_THRESHOLD);
     isTicking = false;
   };
 
@@ -47,7 +37,6 @@ if (header) {
 
   const onBreakpointChange = () => {
     header.classList.remove(TOP_HIDDEN_CLASS);
-    lastScrollY = window.scrollY;
 
     if (desktopMediaQuery.matches && body) {
       body.classList.remove(MENU_OPEN_CLASS);

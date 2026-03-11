@@ -207,8 +207,7 @@ body.new-header--mega-scroll-lock {
 .new-header__nav-submenu {
   position: absolute;
   left: 0;
-  padding-top: 0.8rem;
-  top: 100%;
+  top: calc(100% - 1.5rem);
   width: max-content;
   max-width: 50rem;
   z-index: 20;
