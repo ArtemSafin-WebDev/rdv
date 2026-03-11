@@ -11,7 +11,7 @@ if (header) {
   const body = document.body;
   let lastScrollY = window.scrollY;
   let isTicking = false;
-  let syncServicesScrollLock = () => {};
+  let syncMegaScrollLock = () => {};
 
   const updateHeaderState = () => {
     const currentScrollY = window.scrollY;
@@ -45,7 +45,7 @@ if (header) {
   const onBreakpointChange = () => {
     header.classList.remove(TOP_HIDDEN_CLASS);
     lastScrollY = window.scrollY;
-    syncServicesScrollLock();
+    syncMegaScrollLock();
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -62,15 +62,16 @@ if (header) {
         item.querySelector(":scope > .new-header__nav-submenu")
       )
     : [];
-  const servicesSubmenuItem = nav ? nav.querySelector(".new-header__nav-list-item--services") : null;
+  const megaSubmenuItems = submenuItems.filter((item) =>
+    item.classList.contains("new-header__nav-list-item--mega")
+  );
 
-  syncServicesScrollLock = () => {
+  syncMegaScrollLock = () => {
     if (!body) return;
 
     const shouldLock =
       desktopMediaQuery.matches &&
-      servicesSubmenuItem &&
-      servicesSubmenuItem.classList.contains(SUBMENU_OPEN_CLASS);
+      megaSubmenuItems.some((item) => item.classList.contains(SUBMENU_OPEN_CLASS));
 
     body.classList.toggle(BODY_LOCK_CLASS, Boolean(shouldLock));
   };
@@ -81,7 +82,7 @@ if (header) {
         item.classList.remove(SUBMENU_OPEN_CLASS);
       }
     });
-    syncServicesScrollLock();
+    syncMegaScrollLock();
   };
 
   if (nav && submenuItems.length) {
@@ -92,7 +93,7 @@ if (header) {
         if (openItem) {
           openItem.classList.remove(SUBMENU_OPEN_CLASS);
         }
-        syncServicesScrollLock();
+        syncMegaScrollLock();
         return;
       }
 
@@ -113,7 +114,7 @@ if (header) {
       const isOpen = navItem.classList.contains(SUBMENU_OPEN_CLASS);
       closeAllSubmenus(navItem);
       navItem.classList.toggle(SUBMENU_OPEN_CLASS, !isOpen);
-      syncServicesScrollLock();
+      syncMegaScrollLock();
     });
 
     document.addEventListener("click", (event) => {
@@ -134,5 +135,5 @@ if (header) {
   }
 
   updateHeaderState();
-  syncServicesScrollLock();
+  syncMegaScrollLock();
 }
