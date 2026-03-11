@@ -353,10 +353,6 @@ body.new-header--services-scroll-lock {
   color: currentColor;
 }
 
-.new-header__services-list-item--hover {
-  color: var(--new-header-services-hover-color);
-}
-
 .new-header__services-list-item--muted {
   color: var(--new-header-services-muted-color);
 }
@@ -379,8 +375,7 @@ body.new-header--services-scroll-lock {
   color: inherit;
 }
 
-.new-header__services-link:hover,
-.new-header__services-link--hover {
+.new-header__services-link:hover {
   color: var(--new-header-services-hover-color);
   text-decoration: underline;
   text-decoration-thickness: 1px;
