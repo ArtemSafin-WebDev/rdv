@@ -292,3 +292,25 @@
 .new-header__cta:visited {
   color: var(--new-header-cta-text-color);
 }
+
+@media all and (min-width: 641px) {
+  .new-header__top {
+    max-height: 20rem;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease,
+      padding-top 0.3s ease,
+      padding-bottom 0.3s ease,
+      border-color 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .new-header--top-hidden .new-header__top {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom-color: transparent;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
