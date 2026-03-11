@@ -421,6 +421,18 @@ body.new-header--mega-scroll-lock {
   text-underline-offset: 2px;
 }
 
+.new-header__mega-list-item:active {
+  color: var(--new-header-mega-hover-color);
+}
+
+.new-header__mega-list-item:active > .new-header__mega-link,
+.new-header__mega-link:active {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: currentColor;
+  text-underline-offset: 2px;
+}
+
 .new-header__nav-link {
   display: flex;
   flex-direction: column;
@@ -676,6 +688,7 @@ body.new-header--mega-scroll-lock {
     padding: 0 2rem;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition:
       opacity 0.4s,
       visibility 0s linear 0.4s;
@@ -684,6 +697,7 @@ body.new-header--mega-scroll-lock {
   body.new-header-menu-open .new-header__menu {
     opacity: 1;
     visibility: inherit;
+    pointer-events: auto;
     transition:
       opacity 0.4s,
       visibility 0.4s;
