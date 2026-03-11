@@ -31,6 +31,13 @@
   --new-header-services-close-icon-color: #080d26;
 }
 
+body.new-header--services-scroll-lock {
+  touch-action: none;
+  overflow: hidden;
+  overscroll-behavior: none;
+  scrollbar-gutter: stable;
+}
+
 .new-header__top {
   display: flex;
   align-items: center;

@@ -1,14 +1,17 @@
 const DESKTOP_MEDIA_QUERY = "(min-width: 641px)";
 const TOP_HIDDEN_CLASS = "new-header--top-hidden";
 const SUBMENU_OPEN_CLASS = "new-header__nav-list-item--submenu-open";
+const BODY_LOCK_CLASS = "new-header--services-scroll-lock";
 const SCROLL_DELTA = 4;
 
 const header = document.querySelector(".new-header");
 
 if (header) {
   const desktopMediaQuery = window.matchMedia(DESKTOP_MEDIA_QUERY);
+  const body = document.body;
   let lastScrollY = window.scrollY;
   let isTicking = false;
+  let syncServicesScrollLock = () => {};
 
   const updateHeaderState = () => {
     const currentScrollY = window.scrollY;
@@ -42,6 +45,7 @@ if (header) {
   const onBreakpointChange = () => {
     header.classList.remove(TOP_HIDDEN_CLASS);
     lastScrollY = window.scrollY;
+    syncServicesScrollLock();
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -58,6 +62,18 @@ if (header) {
         item.querySelector(":scope > .new-header__nav-submenu")
       )
     : [];
+  const servicesSubmenuItem = nav ? nav.querySelector(".new-header__nav-list-item--services") : null;
+
+  syncServicesScrollLock = () => {
+    if (!body) return;
+
+    const shouldLock =
+      desktopMediaQuery.matches &&
+      servicesSubmenuItem &&
+      servicesSubmenuItem.classList.contains(SUBMENU_OPEN_CLASS);
+
+    body.classList.toggle(BODY_LOCK_CLASS, Boolean(shouldLock));
+  };
 
   const closeAllSubmenus = (exceptItem) => {
     submenuItems.forEach((item) => {
@@ -65,6 +81,7 @@ if (header) {
         item.classList.remove(SUBMENU_OPEN_CLASS);
       }
     });
+    syncServicesScrollLock();
   };
 
   if (nav && submenuItems.length) {
@@ -75,6 +92,7 @@ if (header) {
         if (openItem) {
           openItem.classList.remove(SUBMENU_OPEN_CLASS);
         }
+        syncServicesScrollLock();
         return;
       }
 
@@ -95,6 +113,7 @@ if (header) {
       const isOpen = navItem.classList.contains(SUBMENU_OPEN_CLASS);
       closeAllSubmenus(navItem);
       navItem.classList.toggle(SUBMENU_OPEN_CLASS, !isOpen);
+      syncServicesScrollLock();
     });
 
     document.addEventListener("click", (event) => {
@@ -115,4 +134,5 @@ if (header) {
   }
 
   updateHeaderState();
+  syncServicesScrollLock();
 }
