@@ -69,6 +69,15 @@ if (header) {
 
   if (nav && submenuItems.length) {
     nav.addEventListener("click", (event) => {
+      const closeTrigger = event.target.closest("[data-submenu-close]");
+      if (closeTrigger && nav.contains(closeTrigger)) {
+        const openItem = closeTrigger.closest(".new-header__nav-list-item");
+        if (openItem) {
+          openItem.classList.remove(SUBMENU_OPEN_CLASS);
+        }
+        return;
+      }
+
       const navLink = event.target.closest(".new-header__nav-link");
 
       if (!navLink || !nav.contains(navLink)) {
