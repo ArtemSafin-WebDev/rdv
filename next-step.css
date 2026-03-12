@@ -1,0 +1,124 @@
+.next-step {
+  margin-bottom: 10rem;
+}
+
+.next-step__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(54rem, 67rem);
+  gap: 1.8rem;
+  align-items: center;
+  padding: 6.3rem 6.4rem;
+  border-radius: 3rem;
+  background: #f5f7fd;
+  color: #080d26;
+}
+
+.next-step__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.4rem;
+  max-width: 70.4rem;
+}
+
+.next-step__text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.next-step__heading {
+  margin: 0;
+  color: #080d26;
+  font-size: 5.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 106%;
+  letter-spacing: -0.112rem;
+}
+
+.next-step__heading b {
+  color: #00bee4;
+  font-weight: inherit;
+}
+
+.next-step__text {
+  margin: 0;
+  max-width: 63rem;
+  color: #080d26;
+  font-size: 2.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 123%;
+}
+
+.next-step__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.next-step__list-item {
+  display: grid;
+  grid-template-columns: 2.7rem minmax(0, 1fr);
+  gap: 0.4rem;
+  align-items: start;
+  color: #080d26;
+  font-size: 2.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 123%;
+}
+
+.next-step__list-item::before {
+  content: "";
+  width: 2.7rem;
+  height: 2.7rem;
+  background: url("/img/next-step/check.svg") center / 1.7769rem 1.7769rem
+    no-repeat;
+}
+
+.next-step__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 1rem;
+  background: #174f77;
+  color: #fff;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  text-transform: uppercase;
+  padding: 1.7rem 2.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.next-step__button:hover {
+  background-color: #0f4164;
+}
+
+.next-step__button:focus-visible {
+  outline: 0.2rem solid #00bee4;
+  outline-offset: 0.2rem;
+}
+
+.next-step__media {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.next-step__image {
+  display: block;
+  width: 72.3rem;
+  max-width: none;
+  height: auto;
+  margin-right: -1.2rem;
+  filter: drop-shadow(0 0.4rem 1.79rem rgba(17, 24, 59, 0.21));
+}
