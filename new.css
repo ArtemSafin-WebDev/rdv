@@ -512,7 +512,7 @@
 
 .automation-levels__heading {
   margin: 0;
-  max-width: 138.3rem;
+  text-wrap: balance;
   color: #080d26;
   font-size: 5.6rem;
   font-style: normal;
@@ -521,44 +521,62 @@
   line-height: 106%;
 }
 
-.automation-levels__heading span {
+.automation-levels__heading b {
   color: #00bee4;
+  font-weight: inherit;
 }
 
 .automation-levels__cards {
-  margin-top: 10.7rem;
-  display: flex;
+  margin-top: 7.4rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: flex-end;
-  gap: 1.3rem;
+  gap: 2rem;
 }
 
 .automation-levels__card {
-  width: 44.9rem;
-  flex-shrink: 0;
   position: relative;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 50rem;
 }
 
-.automation-levels__card--1 {
-  height: 49.8rem;
+.automation-levels__card:nth-child(2) {
+  min-height: 62rem;
+}
+.automation-levels__card:nth-child(3) {
+  min-height: 72.8rem;
 }
 
-.automation-levels__card--2 {
-  height: 62rem;
+.automation-levels__card:nth-child(2) .automation-levels__card-body {
+  background-image: url("img/system-approach/levels/decor-1.svg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
 }
-
-.automation-levels__card--3 {
-  height: 72.8rem;
+.automation-levels__card:nth-child(3) .automation-levels__card-body {
+  background-image:
+    url("img/system-approach/levels/mountain.webp"),
+    url("img/system-approach/levels/decor-2.svg");
+  background-size:
+    auto 23rem,
+    100% auto;
+  background-repeat: no-repeat;
+  background-position:
+    right bottom,
+    center bottom;
 }
 
 .automation-levels__progress {
   display: flex;
   align-items: center;
   gap: 1.1rem;
-  padding: 0 0.1rem;
+  min-width: 0;
 }
 
 .automation-levels__stage {
-  min-width: 12.8rem;
+  padding: 0 2.6rem;
   height: 4.285rem;
   border-radius: 2.9605rem;
   background: #00bee4;
@@ -570,14 +588,12 @@
   font-style: normal;
   font-weight: 700;
   line-height: 98%;
-}
-
-.automation-levels__card--2 .automation-levels__stage,
-.automation-levels__card--3 .automation-levels__stage {
-  min-width: 13.9rem;
+  white-space: nowrap;
 }
 
 .automation-levels__track {
+  flex: 1;
+  min-width: 0;
   height: 4.285rem;
   border-radius: 2.9605rem;
   background: #d0d8f0;
@@ -588,15 +604,6 @@
   padding: 0 1.3rem;
 }
 
-.automation-levels__card--1 .automation-levels__track {
-  width: 31rem;
-}
-
-.automation-levels__card--2 .automation-levels__track,
-.automation-levels__card--3 .automation-levels__track {
-  width: 29.8rem;
-}
-
 .automation-levels__dot {
   width: 2.103rem;
   height: 2.103rem;
@@ -605,67 +612,27 @@
 }
 
 .automation-levels__card-body {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
   background: #fff;
   border-radius: 2.4rem;
   box-shadow: 0 0.312rem 2.431rem rgba(13, 0, 84, 0.09);
   overflow: hidden;
-  padding: 19.6rem 3.2rem 2.8rem;
-}
-
-.automation-levels__card--1 .automation-levels__card-body {
-  min-height: 43.5rem;
-}
-
-.automation-levels__card--2 .automation-levels__card-body {
-  min-height: 56.3rem;
-  padding-bottom: 8rem;
-}
-
-.automation-levels__card--3 .automation-levels__card-body {
-  min-height: 67.1rem;
-  padding-bottom: 12.8rem;
+  margin-top: 1.3rem;
+  padding: 0 3.2rem 2.8rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .automation-levels__hero {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 17.5rem;
-  border-radius: 2.3373rem;
+  position: relative;
+  border-radius: 2.4rem;
   overflow: hidden;
   padding: 2.4rem 2.9rem 2.2rem;
+  margin: 0 -3.2rem 2.2rem;
   color: #fff;
-}
-
-.automation-levels__hero::before {
-  content: "";
-  position: absolute;
-  inset: -2rem -4rem -6rem;
-  background: url("/img/system-approach/levels/stage-cover.png") center center /
+  background: url("img/system-approach/levels/stage-cover.svg") center center /
     cover no-repeat;
-}
-
-.automation-levels__hero::after {
-  content: "";
-  position: absolute;
-  width: 57rem;
-  height: 105rem;
-  left: 13rem;
-  top: -48rem;
-  transform: rotate(-140deg);
-  background: url("/img/system-approach/levels/glow-shape.svg") center center /
-    cover no-repeat;
-  opacity: 0.85;
-}
-
-.automation-levels__hero > * {
-  position: relative;
-  z-index: 2;
 }
 
 .automation-levels__card-title {
@@ -693,6 +660,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
+  position: relative;
+  z-index: 2;
 }
 
 .automation-levels__list li {
@@ -711,177 +680,9 @@
   content: "";
   width: 2.1rem;
   height: 2.1rem;
-  background: url("/img/system-approach/levels/check.svg") center center /
+  background: url("img/system-approach/levels/check.svg") center center /
     1.645rem 1.645rem no-repeat;
   margin-top: 0.2rem;
-}
-
-.automation-levels__ridge {
-  position: absolute;
-  left: -0.4rem;
-  bottom: 0;
-  width: 47.8rem;
-  max-width: none;
-  pointer-events: none;
-}
-
-.automation-levels__card--3 .automation-levels__ridge {
-  left: -1.3rem;
-  width: 47.4rem;
-}
-
-.automation-levels__mountain {
-  position: absolute;
-  right: -10.4rem;
-  bottom: -4.8rem;
-  width: 45.7rem;
-  pointer-events: none;
-}
-
-@media all and (max-width: 640px) {
-  .automation-levels {
-    margin-bottom: 2.8rem;
-  }
-
-  .automation-levels__layout {
-    border-radius: 1.6rem;
-    padding: 2.4rem 1.4rem 1.8rem;
-  }
-
-  .automation-levels__heading {
-    font-size: 2.4rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 106%;
-    letter-spacing: -0.048rem;
-  }
-
-  .automation-levels__cards {
-    margin-top: 2.4rem;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1.2rem;
-  }
-
-  .automation-levels__card {
-    width: 100%;
-    height: auto;
-  }
-
-  .automation-levels__progress {
-    gap: 0.8rem;
-    padding: 0;
-  }
-
-  .automation-levels__stage {
-    min-width: 9.4rem;
-    height: 3.4rem;
-    border-radius: 2.2rem;
-    font-size: 1.8rem;
-  }
-
-  .automation-levels__card--2 .automation-levels__stage,
-  .automation-levels__card--3 .automation-levels__stage {
-    min-width: 10.2rem;
-  }
-
-  .automation-levels__track,
-  .automation-levels__card--1 .automation-levels__track,
-  .automation-levels__card--2 .automation-levels__track,
-  .automation-levels__card--3 .automation-levels__track {
-    width: auto;
-    flex-grow: 1;
-    height: 3.4rem;
-    border-radius: 2.2rem;
-    gap: 0.6rem;
-    padding: 0 0.8rem;
-  }
-
-  .automation-levels__dot {
-    width: 1.4rem;
-    height: 1.4rem;
-  }
-
-  .automation-levels__card-body,
-  .automation-levels__card--1 .automation-levels__card-body,
-  .automation-levels__card--2 .automation-levels__card-body,
-  .automation-levels__card--3 .automation-levels__card-body {
-    position: relative;
-    min-height: unset;
-    margin-top: 0.8rem;
-    border-radius: 1.2rem;
-    padding: 13.8rem 1.6rem 1.6rem;
-    box-shadow: 0 0.24rem 1.8rem rgba(13, 0, 84, 0.09);
-  }
-
-  .automation-levels__card--2 .automation-levels__card-body {
-    padding-bottom: 5.5rem;
-  }
-
-  .automation-levels__card--3 .automation-levels__card-body {
-    padding-bottom: 9.6rem;
-  }
-
-  .automation-levels__hero {
-    height: 12.5rem;
-    border-radius: 1.2rem;
-    padding: 1.7rem 1.6rem 1.2rem;
-  }
-
-  .automation-levels__hero::before {
-    inset: -2rem;
-  }
-
-  .automation-levels__hero::after {
-    width: 40rem;
-    height: 74rem;
-    left: 6.5rem;
-    top: -34rem;
-  }
-
-  .automation-levels__card-title {
-    font-size: 1.9rem;
-    line-height: 102%;
-  }
-
-  .automation-levels__card-subtitle {
-    margin-top: 0.6rem;
-    font-size: 1.4rem;
-    line-height: 120%;
-  }
-
-  .automation-levels__list {
-    gap: 0.8rem;
-  }
-
-  .automation-levels__list li {
-    grid-template-columns: 1.6rem minmax(0, 1fr);
-    gap: 0.8rem;
-    font-size: 1.6rem;
-    line-height: 116%;
-  }
-
-  .automation-levels__list li::before {
-    width: 1.6rem;
-    height: 1.6rem;
-    background-size: 1.25rem 1.25rem;
-  }
-
-  .automation-levels__ridge {
-    left: -1rem;
-    width: calc(100% + 2rem);
-  }
-
-  .automation-levels__card--3 .automation-levels__ridge {
-    left: -1rem;
-    width: calc(100% + 2rem);
-  }
-
-  .automation-levels__mountain {
-    width: 24rem;
-    right: -5rem;
-    bottom: -2.4rem;
-  }
 }
 
 .system-approach {
