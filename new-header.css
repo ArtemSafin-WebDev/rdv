@@ -137,7 +137,7 @@ body.new-header--mega-scroll-lock {
 }
 
 .new-header__bottom {
-  height: 9.5rem;
+  height: var(--new-header-bottom-height);
   display: flex;
   align-items: center;
   gap: 3.2rem;
@@ -315,7 +315,6 @@ body.new-header--mega-scroll-lock {
   background-color: var(--new-header-mega-bg-color);
   border-radius: 0;
   padding: 4.4rem 0 5.2rem;
-  max-height: 100dvh;
   overflow-y: auto;
   overflow-x: hidden;
   overscroll-behavior-y: none;
@@ -695,11 +694,11 @@ body.new-header--mega-scroll-lock {
 
 @media all and (min-width: 641px) {
   .new-header__nav-submenu-inner--mega {
-    max-height: calc(100dvh - var(--new-header-height-expanded));
+    height: calc(100dvh - var(--new-header-height-expanded));
   }
 
   .new-header.new-header--top-hidden .new-header__nav-submenu-inner--mega {
-    max-height: calc(100dvh - var(--new-header-height-collapsed));
+    height: calc(100dvh - var(--new-header-height-collapsed));
   }
 
   .new-header__top {
