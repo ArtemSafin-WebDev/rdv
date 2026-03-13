@@ -184,3 +184,149 @@
     1.645rem no-repeat;
   margin-top: 0.2rem;
 }
+
+@media all and (max-width: 640px) {
+  .automation-levels {
+    margin-bottom: 5rem;
+  }
+
+  .automation-levels__layout {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .automation-levels__heading {
+    max-width: none;
+    font-size: 2.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 106%;
+    letter-spacing: -0.052rem;
+    text-wrap: balance;
+  }
+
+  .automation-levels__cards {
+    margin-top: 2.2rem;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .automation-levels__card,
+  .automation-levels__card:nth-child(2),
+  .automation-levels__card:nth-child(3) {
+    min-height: auto;
+  }
+
+  .automation-levels__card {
+    position: relative;
+  }
+
+  .automation-levels__progress {
+    position: absolute;
+    top: 1.1rem;
+    left: 2.2rem;
+    z-index: 2;
+    gap: 0;
+    pointer-events: none;
+  }
+
+  .automation-levels__track {
+    display: none;
+  }
+
+  .automation-levels__stage {
+    height: auto;
+    padding: 0.4rem 0.7rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.94;
+  }
+
+  .automation-levels__card-body {
+    margin-top: 0;
+    min-height: auto;
+    padding: 0 0 3rem;
+    border-radius: 1.2rem;
+    box-shadow: none;
+    background-color: #f5f7fd;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: auto;
+  }
+
+  .automation-levels__card:nth-child(1) .automation-levels__card-body {
+    background-image: url("img/automation-levels/decor-1-mobile.svg");
+    background-size: auto 3.8rem;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+  }
+
+  .automation-levels__card:nth-child(2) .automation-levels__card-body {
+    background-image: url("img/automation-levels/decor-2-mobile.svg");
+    background-size: auto 6.4rem;
+    background-position: right bottom;
+  }
+
+  .automation-levels__card:nth-child(3) .automation-levels__card-body {
+    background-image:
+      url("img/automation-levels/mountain-mobile.webp"),
+      url("img/automation-levels/decor-3-mobile.svg");
+    background-size:
+      auto 11.2rem,
+      auto 8.2rem;
+    background-position:
+      right bottom,
+      right bottom;
+  }
+
+  .automation-levels__hero {
+    position: relative;
+    min-height: auto;
+    margin: 0;
+    padding: 3.7rem 3.9rem 1.6rem 2.2rem;
+    border-radius: 1.2rem;
+    background-position: center;
+  }
+
+  .automation-levels__card-title {
+    max-width: none;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .automation-levels__card-subtitle {
+    max-width: none;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+  .automation-levels__list {
+    margin-top: 1.9rem;
+    padding: 0 6rem 0 2.2rem;
+    gap: 0.8rem;
+  }
+
+  .automation-levels__list li {
+    grid-template-columns: 1.3rem minmax(0, 1fr);
+    gap: 0.6rem;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+  .automation-levels__list li::before {
+    width: 1.3rem;
+    height: 1.3rem;
+    background-size: 1.0185rem 1.0185rem;
+    margin-top: 0.1rem;
+  }
+}
