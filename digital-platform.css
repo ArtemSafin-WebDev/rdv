@@ -18,6 +18,10 @@
   font-weight: inherit;
 }
 
+.digital-platform__heading--tech-expertise {
+  max-width: 142rem;
+}
+
 .digital-platform__grid {
   margin: 3.5rem 0 0;
   padding: 0;
@@ -27,12 +31,17 @@
   gap: 2.4rem;
 }
 
+.digital-platform__grid--double {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .digital-platform__card {
   min-width: 0;
   background: #f5f7fd;
   border-radius: 2.4rem;
   padding: 3.6rem 3.3rem 3.2rem;
   display: flex;
+  gap: 2rem;
 }
 
 .digital-platform__card-content {
@@ -96,6 +105,7 @@
     border-radius: 0.8rem;
     padding: 1.4rem 2rem 1.2rem 2.2rem;
     align-items: flex-start;
+    gap: 0.8rem;
   }
 
   .digital-platform__card-content {
