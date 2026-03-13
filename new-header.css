@@ -25,6 +25,8 @@
   --new-header-submenu-bg-color: #f5f7fd;
   --new-header-top-height: 7.5rem;
   --new-header-burger-border-color: rgba(23, 79, 119, 0.1);
+  --new-header-burger-background-color: transparent;
+  --new-header-burger-icon-color: #080d26;
   --new-header-bottom-height: 9.2rem;
   --new-header-mobile-nav-link-divider-color: #dbe6f0;
   --new-header-height-expanded: calc(
@@ -48,7 +50,10 @@
   --new-header-bg-color: transparent;
   --new-header-cta-bg-color: #174f77;
   --new-header-cta-text-color: #ffffff;
-  --new-header-burger-border-color: rgba(255, 255, 255, 0.2);
+  --new-header-burger-border-color: #174f77;
+  --new-header-burger-background-color: #174f77;
+
+  --new-header-burger-icon-color: white;
 }
 
 body.new-header--mega-scroll-lock {
@@ -734,12 +739,19 @@ body.new-header--mega-scroll-lock {
     height: var(--new-header-bottom-height);
   }
 
+  .new-header__logo {
+    gap: 1.2rem;
+  }
+
   .new-header__logo-desc {
-    display: none;
+    font-size: 0.9303rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
   }
 
   .new-header__logo-image-wrapper {
-    width: 10rem;
+    width: 8.7rem;
   }
 
   .new-header__cta {
@@ -747,7 +759,7 @@ body.new-header--mega-scroll-lock {
   }
 
   .new-header__bottom-right-wrapper {
-    gap: 1rem;
+    gap: 0.4rem;
   }
 
   .new-header__burger-btn {
@@ -761,6 +773,10 @@ body.new-header--mega-scroll-lock {
     height: 4.2rem;
     border-radius: 0.8rem;
     border: 1px solid var(--new-header-burger-border-color);
+    background-color: var(--new-header-burger-background-color);
+    transition:
+      background-color 0.2s,
+      border-color 0.2s;
   }
 
   .new-header__burger-btn::before,
@@ -768,8 +784,9 @@ body.new-header--mega-scroll-lock {
     content: "";
     width: 1.4rem;
     height: 1px;
-    background-color: var(--new-header-text-color);
+    background-color: var(--new-header-burger-icon-color);
     transform-origin: left center;
+    transition: background-color 0.2s;
   }
 
   .new-header__burger-btn::after {
@@ -1100,6 +1117,6 @@ body.new-header--mega-scroll-lock {
   }
 
   .new-header__search-form {
-    width: calc(100vw - 9.2rem);
+    width: calc(100vw - 8.5rem);
   }
 }
