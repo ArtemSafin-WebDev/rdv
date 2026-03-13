@@ -5,7 +5,11 @@
 .next-step__card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(54rem, 67rem);
-  gap: 1.8rem;
+  grid-template-areas:
+    "content media"
+    "button media";
+  column-gap: 1.8rem;
+  row-gap: 3.4rem;
   align-items: center;
   padding: 6.3rem 6.4rem;
   border-radius: 3rem;
@@ -14,6 +18,7 @@
 }
 
 .next-step__content {
+  grid-area: content;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -82,9 +87,11 @@
 }
 
 .next-step__button {
+  grid-area: button;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  justify-self: start;
   border: 0;
   border-radius: 1rem;
   background: #174f77;
@@ -109,6 +116,7 @@
 }
 
 .next-step__media {
+  grid-area: media;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -121,4 +129,86 @@
   height: auto;
   margin-right: -1.2rem;
   filter: drop-shadow(0 0.4rem 1.79rem rgba(17, 24, 59, 0.21));
+}
+
+@media all and (max-width: 640px) {
+  .next-step {
+    margin-bottom: 3rem;
+  }
+
+  .next-step .container {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .next-step__card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "content"
+      "media"
+      "button";
+    row-gap: 2.2rem;
+    padding: 3.5rem 2rem 1.2rem 2.1rem;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .next-step__content {
+    gap: 2.2rem;
+    max-width: none;
+  }
+
+  .next-step__text-block {
+    gap: 1.2rem;
+  }
+
+  .next-step__heading {
+    max-width: 35rem;
+    font-size: 2.6rem;
+    line-height: 106%;
+    letter-spacing: -0.052rem;
+  }
+
+  .next-step__text {
+    max-width: 35rem;
+    font-size: 1.2rem;
+    line-height: 120%;
+  }
+
+  .next-step__list {
+    gap: 0.8rem;
+  }
+
+  .next-step__list-item {
+    grid-template-columns: 1.3rem minmax(0, 1fr);
+    gap: 0.6rem;
+    max-width: 30.1rem;
+    font-size: 1.2rem;
+    line-height: 120%;
+  }
+
+  .next-step__list-item::before {
+    width: 1.3rem;
+    height: 1.3rem;
+    background-size: 1.0185rem 1.0185rem;
+  }
+
+  .next-step__media {
+    justify-content: center;
+  }
+
+  .next-step__image {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .next-step__button {
+    width: 100%;
+    min-height: 3.4rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.8rem;
+    font-size: 1.2rem;
+    line-height: 120%;
+  }
 }
