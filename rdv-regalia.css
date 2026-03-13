@@ -169,3 +169,116 @@
   height: 100%;
   object-fit: contain;
 }
+
+@media all and (max-width: 640px) {
+  .rdv-regalia {
+    margin-bottom: 5rem;
+  }
+
+  .rdv-regalia__content {
+    gap: 2.2rem;
+    padding-top: 2.4rem;
+  }
+
+  .rdv-regalia__title {
+    max-width: 34.8rem;
+    font-size: 2.6rem;
+    line-height: 106%;
+    letter-spacing: -0.052rem;
+    text-wrap: unset;
+  }
+
+  .rdv-regalia__cards {
+    gap: 1.2rem;
+  }
+
+  .rdv-regalia__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 0.793rem;
+    row-gap: 1.2rem;
+  }
+
+  .rdv-regalia__list-item--stat {
+    grid-column: span 1;
+  }
+
+  .rdv-regalia__list-item--rating {
+    grid-column: span 3;
+  }
+
+  .rdv-regalia__card {
+    border-radius: 0.8rem;
+  }
+
+  .rdv-regalia__card--stat {
+    padding: 1.4rem 1.2rem 1rem;
+    gap: 0.6rem;
+  }
+
+  .rdv-regalia__card--stat::after {
+    top: 0.793rem;
+    right: 0.794rem;
+    width: 0.847rem;
+    height: 0.847rem;
+    background:
+      radial-gradient(
+        circle at center,
+        #00bee4 0 0.18rem,
+        rgba(0, 190, 228, 0) 0.19rem
+      ),
+      rgba(0, 190, 228, 0.1);
+  }
+
+  .rdv-regalia__stat-value {
+    font-size: 3.2rem;
+    line-height: 100%;
+    letter-spacing: -0.16rem;
+  }
+
+  .rdv-regalia__stat-text {
+    font-size: 0.9rem;
+    line-height: 120%;
+  }
+
+  .rdv-regalia__card--rating {
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 1.376rem 1.834rem 1.376rem 2.522rem;
+  }
+
+  .rdv-regalia__rating-content {
+    gap: 0.917rem;
+    flex: 0 1 28.046rem;
+  }
+
+  .rdv-regalia__rating-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: 0;
+  }
+
+  .rdv-regalia__rating-text {
+    font-size: 1.2rem;
+    line-height: 120%;
+  }
+
+  .rdv-regalia__icon-frame {
+    width: 2.862rem;
+    height: 2.87rem;
+    margin-right: 0;
+    margin-bottom: 0;
+    align-self: flex-end;
+  }
+
+  .rdv-regalia__logos {
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .rdv-regalia__logo-item {
+    height: 2.5rem;
+  }
+}
