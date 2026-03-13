@@ -73,3 +73,50 @@
   margin-bottom: -2rem;
   margin-right: -2rem;
 }
+
+@media all and (max-width: 640px) {
+  .digital-platform {
+    margin-bottom: 5rem;
+  }
+
+  .digital-platform__heading {
+    max-width: none;
+    font-size: 2.6rem;
+    line-height: 106%;
+    letter-spacing: -0.052rem;
+  }
+
+  .digital-platform__grid {
+    margin-top: 2.2rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.2rem;
+  }
+
+  .digital-platform__card {
+    border-radius: 0.8rem;
+    padding: 1.4rem 2rem 1.2rem 2.2rem;
+    align-items: flex-start;
+  }
+
+  .digital-platform__card-content {
+    gap: 1rem;
+  }
+
+  .digital-platform__card-title {
+    font-size: 1.6rem;
+    line-height: 120%;
+  }
+
+  .digital-platform__card-text {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 120%;
+  }
+
+  .digital-platform__card-icon {
+    width: 2.7rem;
+    height: 2.7rem;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+}
