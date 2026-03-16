@@ -42,6 +42,7 @@
 
 .intro-block__title b {
   color: #00bee4;
+  font-weight: inherit;
 }
 
 .intro-block__text {
@@ -92,7 +93,52 @@
 @media all and (max-width: 640px) {
   .intro-block {
     background-image: url("img/intro-block/bg-mobile.svg");
+    border-bottom-left-radius: 1.6rem;
+    border-bottom-right-radius: 1.6rem;
+    margin-bottom: 2.6rem;
   }
+
+  .intro-block__row {
+    display: block;
+    padding-top: 9.2rem;
+    padding-bottom: 4rem;
+  }
+
+  .intro-block__content {
+    width: 100%;
+    max-width: none;
+  }
+
+  .intro-block__title {
+    font-size: 3.2rem;
+    line-height: 100%;
+    text-wrap: initial;
+    max-width: none;
+  }
+
+  .intro-block__title b {
+    display: block;
+  }
+
+  .intro-block__text {
+    margin-top: 2.4rem;
+    max-width: none;
+    font-size: 1.2rem;
+    line-height: 120%;
+  }
+
+  .intro-block__text p + p {
+    margin-top: 1.6rem;
+  }
+
+  .intro-block__button.button {
+    width: 100%;
+    margin-top: 3.6rem;
+    border-radius: 0.8rem;
+    padding: 1.3rem 0.8rem;
+    font-size: 1.2rem;
+  }
+
   .intro-block__video-wrapper {
     display: none;
   }
