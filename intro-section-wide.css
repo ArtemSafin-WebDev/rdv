@@ -1,0 +1,132 @@
+.intro-section-wide {
+  margin-bottom: 8rem;
+  background-color: #08132c;
+  background-image: url("img/intro-section-wide/bg.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  border-radius: 3rem;
+}
+
+.intro-section-wide__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 65rem);
+  gap: 4.3rem;
+  align-items: center;
+  padding: 10rem 0;
+}
+
+.intro-section-wide__content {
+  max-width: 81.1rem;
+}
+
+.intro-section-wide__title {
+  font-size: 5.6rem;
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.intro-section-wide__title b {
+  color: #00bee4;
+  font-weight: inherit;
+}
+
+.intro-section-wide__text {
+  margin-top: 3.2rem;
+  max-width: 71rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.intro-section-wide__button.button {
+  margin-top: 9.5rem;
+  border-radius: 1rem;
+  padding: 1.7rem 2.2rem;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #002740;
+}
+
+.intro-section-wide__graphic {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 65rem;
+  max-width: 100%;
+  aspect-ratio: 669 / 461;
+  padding: 2.4rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 0.4rem 4.4rem 0.5rem rgba(0, 89, 107, 0.28);
+  color: #fff;
+  cursor: pointer;
+}
+
+.intro-section-wide__graphic-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro-section-wide__graphic-time {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 100rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1;
+  text-transform: uppercase;
+  z-index: 4;
+}
+
+.intro-section-wide__graphic-title {
+  max-width: 46.4rem;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  z-index: 10;
+  position: relative;
+}
+
+.intro-section-wide__play-button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.intro-section-wide__play-button svg {
+  width: 3.4rem;
+  height: 3.4rem;
+  fill: #fff;
+  margin-left: 0.4rem;
+}
+
+.intro-section-wide__graphic[data-src=""] {
+  cursor: default;
+}
+
+.intro-section-wide__graphic[data-src=""] .intro-section-wide__play-button {
+  display: none;
+}
