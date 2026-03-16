@@ -1,0 +1,90 @@
+.intro-block {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-bottom-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+  background-color: #08132c;
+  background-image: url("img/intro-block/bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  margin-bottom: 11rem;
+}
+
+.intro-block__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.intro-block__row {
+  padding-top: 24rem;
+  padding-bottom: 10.7rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.intro-block__content {
+  max-width: 92.2rem;
+  width: 30%;
+  flex-grow: 1;
+}
+
+.intro-block__title {
+  font-size: 7rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 113%;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.intro-block__title b {
+  color: #00bee4;
+}
+
+.intro-block__text {
+  margin-top: 3rem;
+  max-width: 100%;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  max-width: 84rem;
+}
+
+.intro-block__text p + p {
+  margin-top: 2.4rem;
+}
+
+.intro-block__button.button {
+  margin-top: 4.7rem;
+  border-radius: 1rem;
+  padding: 1.6rem 2.4rem;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  color: #002740;
+}
+
+.intro-block__video-wrapper {
+  flex-shrink: 1;
+  mix-blend-mode: screen;
+  width: 70rem;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  margin-top: -10rem;
+  margin-right: -10rem;
+  margin-bottom: -15rem;
+}
+
+.intro-block__video-wrapper video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

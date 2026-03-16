@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/vendor/base.css">
     <link rel="stylesheet" href="/new.css">
+    <link rel="stylesheet" href="/intro-block.css">
     <link rel="stylesheet" href="/automation-levels.css">
     <link rel="stylesheet" href="/procurement-projects.css">
     <link rel="stylesheet" href="/process-participants.css">
@@ -1017,83 +1018,113 @@
                 </div>
             </div>
         </header>
-        <section class="integrator">
-            <div class="integrator__bg">
-                <picture>
-                    <source media="(max-width: 640px)" srcset="/img/integrator/bg-mobile.svg">
-                    <img src="/img/integrator/bg.svg" alt="">
-                </picture>
-            </div>
+        <section class="intro-block">
+
             <div class="container">
-                <div class="integrator__content">
-                    <div class="integrator__left-col">
-                        <h1 class="integrator__heading">
-                            Интегратор,<br>
-                            где бизнес в фокусе
+                <div class="intro-block__row">
+                    <div class="intro-block__content">
+                        <h1 class="intro-block__title">
+                            Цифровая трансформация
+                            <b>для устойчивого роста</b>
+                            и масштабирования
                         </h1>
-                        <div class="integrator__text">
-                            Помогаем компаниям перейти от точечной автоматизации к системному управлению на основе
-                            данных и
-                            технологий
+                        <div class="intro-block__text">
+                            <p>Мы не просто внедряем технологии - мы создаем бизнес-решения, которые ускоряют ваш рост,
+                                сокращают затраты и дают конкурентное преимущество</p>
+                            <p>Объединяем enterprise-подходы, методологию, техническую экспертизу для создания цифровой
+                                платформы по управлению бизнесом</p>
                         </div>
-                        <button
-                            class="integrator__button button button--big button--yellow landing-button-1 js-clear-text-block"
+                        <button class="intro-block__button button button--yellow landing-button-1 js-clear-text-block"
                             data-path="event" data-hide-block="[]" target="_self">Оставить заявку</button>
-                        <div class="integrator__numbers">
-                            <ul class="integrator__numbers-list">
-                                <li class="integrator__numbers-list-item">
-                                    <div class="integrator__numbers-card">
-                                        <div class="integrator__numbers-card-dot">
-
-                                        </div>
-                                        <div class="integrator__numbers-card-amount">
-                                            2017
-                                        </div>
-                                        <div class="integrator__numbers-card-text">
-                                            год основания
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="integrator__numbers-list-item">
-                                    <div class="integrator__numbers-card">
-                                        <div class="integrator__numbers-card-dot">
-
-                                        </div>
-                                        <div class="integrator__numbers-card-amount">
-                                            500
-                                        </div>
-                                        <div class="integrator__numbers-card-text">
-                                            млн оборот
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="integrator__numbers-list-item">
-                                    <div class="integrator__numbers-card">
-                                        <div class="integrator__numbers-card-dot">
-
-                                        </div>
-                                        <div class="integrator__numbers-card-amount">
-                                            130
-                                        </div>
-                                        <div class="integrator__numbers-card-text">
-                                            специалистов в штате
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
-                    <div class="integrator__video-wrapper">
+                    <div class="intro-block__video-wrapper">
                         <video loop autoplay playsinline muted src="/videos/1.mp4">
 
                         </video>
                     </div>
-
-
-
                 </div>
+
             </div>
         </section>
+        <template id="integrator-section-disabled">
+            <section class="integrator">
+                <div class="integrator__bg">
+                    <picture>
+                        <source media="(max-width: 640px)" srcset="/img/integrator/bg-mobile.svg">
+                        <img src="/img/integrator/bg.svg" alt="">
+                    </picture>
+                </div>
+                <div class="container">
+                    <div class="integrator__content">
+                        <div class="integrator__left-col">
+                            <h1 class="integrator__heading">
+                                Интегратор,<br>
+                                где бизнес в фокусе
+                            </h1>
+                            <div class="integrator__text">
+                                Помогаем компаниям перейти от точечной автоматизации к системному управлению на основе
+                                данных и
+                                технологий
+                            </div>
+                            <button
+                                class="integrator__button button button--big button--yellow landing-button-1 js-clear-text-block"
+                                data-path="event" data-hide-block="[]" target="_self">Оставить заявку</button>
+                            <div class="integrator__numbers">
+                                <ul class="integrator__numbers-list">
+                                    <li class="integrator__numbers-list-item">
+                                        <div class="integrator__numbers-card">
+                                            <div class="integrator__numbers-card-dot">
+
+                                            </div>
+                                            <div class="integrator__numbers-card-amount">
+                                                2017
+                                            </div>
+                                            <div class="integrator__numbers-card-text">
+                                                год основания
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="integrator__numbers-list-item">
+                                        <div class="integrator__numbers-card">
+                                            <div class="integrator__numbers-card-dot">
+
+                                            </div>
+                                            <div class="integrator__numbers-card-amount">
+                                                500
+                                            </div>
+                                            <div class="integrator__numbers-card-text">
+                                                млн оборот
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="integrator__numbers-list-item">
+                                        <div class="integrator__numbers-card">
+                                            <div class="integrator__numbers-card-dot">
+
+                                            </div>
+                                            <div class="integrator__numbers-card-amount">
+                                                130
+                                            </div>
+                                            <div class="integrator__numbers-card-text">
+                                                специалистов в штате
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="integrator__video-wrapper">
+                            <video loop autoplay playsinline muted src="/videos/1.mp4">
+
+                            </video>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </section>
+        </template>
         <section class="digital-solutions">
             <div class="container">
                 <h2 class="digital-solutions__heading">
