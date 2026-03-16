@@ -88,3 +88,12 @@
   height: 100%;
   object-fit: cover;
 }
+
+@media all and (max-width: 640px) {
+  .intro-block {
+    background-image: url("img/intro-block/bg-mobile.svg");
+  }
+  .intro-block__video-wrapper {
+    display: none;
+  }
+}
