@@ -1,0 +1,105 @@
+.production-platform {
+  margin-bottom: 10rem;
+}
+
+.production-platform__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.production-platform__heading {
+  margin: 0;
+  font-size: 5.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  text-wrap: balance;
+  margin-bottom: 4rem;
+  color: #080d26;
+}
+
+.production-platform__heading b {
+  font-weight: inherit;
+  color: #00bee4;
+}
+
+.production-platform__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+
+.production-platform__list-item {
+  display: flex;
+}
+
+.production-platform__card {
+  width: 100%;
+  border-radius: 2.4rem;
+  background: #f5f7fd;
+  padding: 2.4rem 3rem;
+  display: flex;
+  gap: 2.4rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #080d26;
+}
+
+.production-platform__card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  gap: 1.2rem;
+}
+
+.production-platform__card-title {
+  margin: 0;
+  font-size: 2.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  text-wrap: balance;
+  color: #080d26;
+}
+
+.production-platform__card-text {
+  margin: 0;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-wrap: pretty;
+}
+
+.production-platform__card-link {
+  margin-top: auto;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  color: #00bee4;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.4rem;
+}
+
+.production-platform__card-link svg {
+  flex-shrink: 0;
+  fill: currentColor;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.production-platform__card-icon {
+  object-fit: contain;
+  width: 5.4rem;
+  height: 5.4rem;
+  flex-shrink: 0;
+  align-self: flex-end;
+}
