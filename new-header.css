@@ -4,6 +4,7 @@
   top: 0;
   width: 100%;
   height: auto;
+  view-transition-name: site-header;
   z-index: 1000;
   color: var(--new-header-text-color);
   background-color: var(--new-header-bg-color);

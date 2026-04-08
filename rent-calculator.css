@@ -116,7 +116,8 @@
   display: inline-flex;
   font-size: 1.9697rem;
   font-weight: 700;
-  aspect-ratio: 1;
+  flex-shrink: 0;
+  height: 3.1rem;
   justify-content: center;
   line-height: 1;
   width: 3.1rem;
@@ -550,6 +551,12 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+
   ::view-transition-group(*) {
     animation-duration: 0.28s;
     animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
@@ -603,7 +610,7 @@
     letter-spacing: -0.048rem;
     line-height: 1.06;
     margin-bottom: 4rem;
-    max-width: 27.6rem;
+    text-wrap: balance;
   }
 
   .rent-calculator__blocks {
@@ -635,6 +642,7 @@
 
   .rent-calculator__step {
     font-size: 1.334rem;
+    height: 2.1rem;
     padding-top: 0.1rem;
     width: 2.1rem;
   }
