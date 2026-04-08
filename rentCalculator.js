@@ -194,7 +194,6 @@ class RentCalculator {
     if (!this.response) {
       this.root.innerHTML = `
         <div class="rent-calculator__shell is-loading">
-          <div class="rent-calculator__loading-bar"></div>
         </div>
       `;
       return;
@@ -202,7 +201,6 @@ class RentCalculator {
 
     this.root.innerHTML = `
       <form class="rent-calculator__shell${this.isLoading ? " is-loading" : ""}" data-rent-calculator-form novalidate>
-        <div class="rent-calculator__loading-bar"></div>
         <div class="rent-calculator__layout">
           <div class="rent-calculator__main">
             <h2 class="rent-calculator__title">${escapeHtml(

@@ -26,29 +26,6 @@
   position: relative;
 }
 
-.rent-calculator__loading-bar {
-  background: linear-gradient(
-    90deg,
-    rgba(0, 190, 228, 0),
-    rgba(0, 190, 228, 0.7),
-    rgba(0, 190, 228, 0)
-  );
-  border-radius: 99.9rem;
-  height: 0.3rem;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  top: -1.6rem;
-  transform: scaleX(0.35);
-  transition: opacity 0.2s ease;
-}
-
-.rent-calculator__shell.is-loading .rent-calculator__loading-bar {
-  animation: rent-calculator-loading 1.1s linear infinite;
-  opacity: 1;
-}
-
 .rent-calculator__layout {
   align-items: start;
   display: grid;
@@ -506,20 +483,6 @@
   padding: 0.5rem 2.4rem;
   text-align: center;
   width: 100%;
-}
-
-@keyframes rent-calculator-loading {
-  0% {
-    transform: translateX(-25%) scaleX(0.35);
-  }
-
-  50% {
-    transform: translateX(0%) scaleX(1);
-  }
-
-  100% {
-    transform: translateX(25%) scaleX(0.35);
-  }
 }
 
 @media all and (max-width: 960px) {
