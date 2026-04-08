@@ -7,6 +7,12 @@ function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
+function getTransitionName(name) {
+  return `rent-calculator-${String(name)
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, "-")}`;
+}
+
 export class RentCalculator {
   constructor(root, api) {
     this.root = root;
@@ -19,6 +25,24 @@ export class RentCalculator {
     this.handleChange = this.handleChange.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  canUseViewTransitions() {
+    return Boolean(
+      typeof document.startViewTransition === "function" &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  }
+
+  renderWithOptionalTransition() {
+    if (!this.canUseViewTransitions() || !this.response) {
+      this.render();
+      return;
+    }
+
+    document.startViewTransition(() => {
+      this.render();
+    });
   }
 
   init() {
@@ -103,7 +127,7 @@ export class RentCalculator {
 
     this.response = response;
     this.isLoading = false;
-    this.render();
+    this.renderWithOptionalTransition();
   }
 
   handleClick(event) {
@@ -247,7 +271,10 @@ export class RentCalculator {
   renderFormBlock(block) {
     if (block.type === "choice-group") {
       return `
-        <section class="rent-calculator__block">
+        <section
+          class="rent-calculator__block"
+          style="view-transition-name: ${getTransitionName(`form-${block.id}`)};"
+        >
           ${this.renderBlockHeader(block)}
           <div class="rent-calculator__chip-row">
             ${block.options
@@ -287,7 +314,10 @@ export class RentCalculator {
       const isMax = Number(block.value) >= Number(block.max);
 
       return `
-        <section class="rent-calculator__block">
+        <section
+          class="rent-calculator__block"
+          style="view-transition-name: ${getTransitionName(`form-${block.id}`)};"
+        >
           ${block.step ? this.renderBlockHeader(block) : ""}
           <div class="rent-calculator__counter-row">
             <div class="rent-calculator__counter">
@@ -353,7 +383,10 @@ export class RentCalculator {
 
     if (block.type === "toggle") {
       return `
-        <section class="rent-calculator__block">
+        <section
+          class="rent-calculator__block"
+          style="view-transition-name: ${getTransitionName(`form-${block.id}`)};"
+        >
           <div class="rent-calculator__header rent-calculator__header--toggle">
             <div class="rent-calculator__header-main">
               <span class="rent-calculator__step">${block.step}</span>
@@ -407,7 +440,10 @@ export class RentCalculator {
   renderSummaryBlock(block) {
     if (block.type === "feature-list") {
       return `
-        <section class="rent-calculator__summary-group">
+        <section
+          class="rent-calculator__summary-group"
+          style="view-transition-name: ${getTransitionName(`summary-${block.id}`)};"
+        >
           <h3 class="rent-calculator__summary-title">${escapeHtml(
             block.title
           )}</h3>
@@ -429,17 +465,26 @@ export class RentCalculator {
 
     if (block.type === "pricing") {
       return `
-        <section class="rent-calculator__summary-group rent-calculator__summary-group--pricing">
+        <section
+          class="rent-calculator__summary-group rent-calculator__summary-group--pricing"
+          style="view-transition-name: ${getTransitionName(`summary-${block.id}`)};"
+        >
           ${
             block.previousMonthly
-              ? `<div class="rent-calculator__old-price">${escapeHtml(
+              ? `<div
+                  class="rent-calculator__old-price"
+                  style="view-transition-name: ${getTransitionName("pricing-old")};"
+                >${escapeHtml(
                   block.previousMonthly
                 )}</div>`
               : ""
           }
           <div class="rent-calculator__price-row">
             <div class="rent-calculator__price-current">
-              <span class="rent-calculator__price-value">${escapeHtml(
+              <span
+                class="rent-calculator__price-value"
+                style="view-transition-name: ${getTransitionName("pricing-current")};"
+              >${escapeHtml(
                 block.currentMonthly
               )}</span>
               <span class="rent-calculator__price-suffix">${escapeHtml(
@@ -448,13 +493,19 @@ export class RentCalculator {
             </div>
             ${
               block.badge
-                ? `<span class="rent-calculator__discount rent-calculator__discount--outline">${escapeHtml(
+                ? `<span
+                    class="rent-calculator__discount rent-calculator__discount--outline"
+                    style="view-transition-name: ${getTransitionName("pricing-badge")};"
+                  >${escapeHtml(
                     block.badge.label
                   )}</span>`
                 : ""
             }
           </div>
-          <div class="rent-calculator__total">
+          <div
+            class="rent-calculator__total"
+            style="view-transition-name: ${getTransitionName("pricing-total")};"
+          >
             <strong>${escapeHtml(block.total)}</strong> ${escapeHtml(block.totalSuffix)}
           </div>
         </section>
@@ -463,7 +514,12 @@ export class RentCalculator {
 
     if (block.type === "cta") {
       return `
-        <button class="rent-calculator__submit" type="submit" data-calculator-submit>
+        <button
+          class="rent-calculator__submit"
+          type="submit"
+          data-calculator-submit
+          style="view-transition-name: ${getTransitionName(`summary-${block.id}`)};"
+        >
           ${escapeHtml(block.label)}
         </button>
       `;

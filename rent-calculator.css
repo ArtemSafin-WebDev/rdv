@@ -511,6 +511,19 @@
   width: 100%;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-group(*) {
+    animation-duration: 0.28s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.28s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .rent-calculator__chip:hover:not(.is-active) {
     border-color: #00bee4;
