@@ -29,8 +29,8 @@
 .rent-calculator__layout {
   align-items: start;
   display: grid;
-  gap: 0.7rem;
-  grid-template-columns: 66.1rem 57.1rem;
+  gap: 4rem;
+  grid-template-columns: 1fr 57rem;
 }
 
 .rent-calculator__shell.is-loading .rent-calculator__main,
