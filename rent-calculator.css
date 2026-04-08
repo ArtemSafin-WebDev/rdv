@@ -66,10 +66,6 @@
   justify-content: space-between;
 }
 
-.rent-calculator__header--toggle {
-  justify-content: flex-start;
-}
-
 .rent-calculator__header-main {
   align-items: center;
   display: flex;
@@ -84,16 +80,43 @@
   position: relative;
 }
 
+.rent-calculator__toggle-layout {
+  align-items: center;
+  display: flex;
+  gap: 1.6rem;
+  justify-content: flex-start;
+}
+
+.rent-calculator__toggle-main {
+  align-items: center;
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  min-width: 0;
+}
+
+.rent-calculator__toggle-controls {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 1.4rem;
+}
+
+.rent-calculator__toggle-main .rent-calculator__label {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
 .rent-calculator__step {
   align-items: center;
   background: #00bee4;
   border-radius: 50%;
   color: #ffffff;
   display: inline-flex;
-  flex: 0 0 auto;
   font-size: 1.9697rem;
   font-weight: 700;
-  height: 3.1rem;
+  aspect-ratio: 1;
   justify-content: center;
   line-height: 1;
   width: 3.1rem;
@@ -111,6 +134,19 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.2rem 1.5rem;
+}
+
+.rent-calculator__choice-layout {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.rent-calculator__discount-row {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
 }
 
 .rent-calculator__chip {
@@ -151,10 +187,15 @@
 }
 
 .rent-calculator__counter-row {
+  display: flex;
+}
+
+.rent-calculator__counter-layout {
   align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   gap: 4.3rem;
+  max-width: 100%;
 }
 
 .rent-calculator__counter {
@@ -176,7 +217,6 @@
   color: #080d26;
   cursor: pointer;
   display: inline-flex;
-  flex: 0 0 2.3rem;
   height: 3.2rem;
   justify-content: center;
   padding: 0;
@@ -184,6 +224,7 @@
     color 0.2s ease,
     opacity 0.2s ease,
     transform 0.2s ease;
+  width: 2.3rem;
 }
 
 .rent-calculator__counter-button svg {
@@ -207,7 +248,6 @@
   caret-color: transparent;
   color: #080d26;
   cursor: default;
-  flex: 0 0 10.8rem;
   font-size: 2.9rem;
   font-weight: 500;
   line-height: 1.2;
@@ -429,7 +469,7 @@
 }
 
 .rent-calculator__price-row {
-  align-items: end;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem 3.2rem;
@@ -472,7 +512,6 @@
   background: #00bee4;
   color: #ffffff;
   font-weight: 700;
-  margin-left: 2rem;
 }
 
 .rent-calculator__discount--outline {
@@ -541,5 +580,286 @@
 
   .rent-calculator__submit:hover {
     background: #00afcf;
+  }
+}
+
+@media all and (max-width: 640px) {
+  .rent-calculator-section {
+    margin-bottom: 3.2rem;
+    padding: 3rem 0 3.4rem;
+  }
+
+  .rent-calculator-section__container {
+    max-width: calc(36rem + 2 * var(--content-padding));
+  }
+
+  .rent-calculator__layout {
+    gap: 2.4rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rent-calculator__title {
+    font-size: 3.2rem;
+    letter-spacing: -0.048rem;
+    line-height: 1.06;
+    margin-bottom: 4rem;
+    max-width: 27.6rem;
+  }
+
+  .rent-calculator__blocks {
+    gap: 3.4rem;
+  }
+
+  .rent-calculator__block {
+    gap: 1.3rem;
+  }
+
+  .rent-calculator__block--nested {
+    margin-top: -1.4rem;
+  }
+
+  .rent-calculator__header {
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .rent-calculator__header-main {
+    align-items: flex-start;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .rent-calculator__header-text {
+    gap: 0.5rem;
+  }
+
+  .rent-calculator__step {
+    font-size: 1.334rem;
+    padding-top: 0.1rem;
+    width: 2.1rem;
+  }
+
+  .rent-calculator__label {
+    flex: 1 1 auto;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    min-width: 0;
+    margin-top: 0.2rem;
+  }
+
+  .rent-calculator__chip-row {
+    align-items: flex-start;
+    gap: 0.8rem 1.1rem;
+  }
+
+  .rent-calculator__choice-layout {
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 2rem;
+  }
+
+  .rent-calculator__chip {
+    border-radius: 0.74rem;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    min-height: 2.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .rent-calculator__chip.is-active {
+    border-width: 0.1rem;
+    box-shadow: none;
+  }
+
+  .rent-calculator__counter-row {
+    display: block;
+  }
+
+  .rent-calculator__counter-layout {
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 3.2rem;
+  }
+
+  .rent-calculator__counter {
+    border-radius: 0.74rem;
+    min-height: 4.3rem;
+    padding: 0.6rem 1rem;
+    width: 13.95rem;
+  }
+
+  .rent-calculator__counter-button {
+    height: 1.7rem;
+    width: 1.7rem;
+  }
+
+  .rent-calculator__counter-button svg {
+    height: 1.7rem;
+    width: 1.7rem;
+  }
+
+  .rent-calculator__counter-value {
+    font-size: 2.14rem;
+    width: 8rem;
+  }
+
+  .rent-calculator__counter-meta {
+    gap: 0.45rem;
+    height: auto;
+    width: 14.9rem;
+  }
+
+  .rent-calculator__counter-label,
+  .rent-calculator__counter-price {
+    font-size: 1.4rem;
+  }
+
+  .rent-calculator__counter-price {
+    line-height: 1.2;
+  }
+
+  .rent-calculator__hint-button {
+    height: 2.1rem;
+    width: 2.1rem;
+  }
+
+  .rent-calculator__hint-button svg {
+    height: 2.1rem;
+    width: 2.1rem;
+  }
+
+  .rent-calculator__hint-popover {
+    border-radius: 0.8rem;
+    font-size: 1.2rem;
+    left: 0;
+    max-width: 24rem;
+    padding: 1rem 1.2rem;
+    transform: translate(0, 0.8rem);
+  }
+
+  .rent-calculator__hint:hover .rent-calculator__hint-popover,
+  .rent-calculator__hint:focus-within .rent-calculator__hint-popover {
+    transform: translate(0, 0);
+  }
+
+  .rent-calculator__toggle-layout {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+
+  .rent-calculator__toggle-main {
+    gap: 0.6rem;
+  }
+
+  .rent-calculator__toggle-controls {
+    gap: 0.6rem;
+  }
+
+  .rent-calculator__switch {
+    border-radius: 0.89rem;
+    padding: 0.2rem;
+    width: 6.8rem;
+  }
+
+  .rent-calculator__switch-thumb {
+    border-radius: 0.71rem;
+    height: 2.13rem;
+    width: 4.18rem;
+  }
+
+  .rent-calculator__switch.is-active .rent-calculator__switch-thumb {
+    transform: translateX(1.9rem);
+  }
+
+  .rent-calculator__aside {
+    position: static;
+    top: auto;
+  }
+
+  .rent-calculator__summary-card {
+    border-radius: 1.5rem;
+    box-shadow: 0 0 1.4rem rgba(2, 50, 92, 0.11);
+    gap: 2.9rem;
+    padding: 2.4rem;
+  }
+
+  .rent-calculator__summary-group {
+    gap: 1.3rem;
+  }
+
+  .rent-calculator__summary-group--pricing {
+    gap: 0.6rem;
+  }
+
+  .rent-calculator__summary-title {
+    font-size: 1.6rem;
+  }
+
+  .rent-calculator__benefits {
+    gap: 0.9rem;
+  }
+
+  .rent-calculator__benefit {
+    font-size: 1.4rem;
+    gap: 0.45rem;
+    grid-template-columns: 0.9rem minmax(0, 1fr);
+  }
+
+  .rent-calculator__benefit-mark {
+    border-radius: 0.1rem;
+    height: 0.63rem;
+    margin-top: 0.45rem;
+    width: 0.63rem;
+  }
+
+  .rent-calculator__old-price {
+    font-size: 1.4rem;
+    text-decoration-thickness: 0.14rem;
+  }
+
+  .rent-calculator__price-row {
+    gap: 1.4rem;
+  }
+
+  .rent-calculator__price-current {
+    gap: 0.4rem;
+  }
+
+  .rent-calculator__price-value {
+    font-size: 3.54rem;
+    letter-spacing: -0.071rem;
+  }
+
+  .rent-calculator__price-suffix {
+    font-size: 1.6rem;
+  }
+
+  .rent-calculator__discount {
+    border-radius: 0.74rem;
+    font-size: 1.4rem;
+    min-height: 2.8rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .rent-calculator__discount--solid {
+    border-radius: 5.02rem;
+    margin-top: 0;
+  }
+
+  .rent-calculator__discount--outline {
+    border-width: 0.15rem;
+  }
+
+  .rent-calculator__total {
+    font-size: 1.4rem;
+  }
+
+  .rent-calculator__submit {
+    font-size: 1.4rem;
+    min-height: 3.4rem;
+    padding: 0.4rem 2rem;
   }
 }

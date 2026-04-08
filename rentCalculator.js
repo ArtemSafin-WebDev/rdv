@@ -276,32 +276,36 @@ export class RentCalculator {
           style="view-transition-name: ${getTransitionName(`form-${block.id}`)};"
         >
           ${this.renderBlockHeader(block)}
-          <div class="rent-calculator__chip-row">
-            ${block.options
-              .map(
-                (option) => `
-                  <label class="rent-calculator__chip${option.selected ? " is-active" : ""}">
-                    <input
-                      class="rent-calculator__chip-input"
-                      type="${escapeHtml(block.inputType || "radio")}"
-                      name="${escapeHtml(block.name)}"
-                      value="${escapeHtml(option.value)}"
-                      data-calculator-choice
-                      data-name="${escapeHtml(block.name)}"
-                      data-value="${escapeHtml(option.value)}"
-                      data-input-type="${escapeHtml(block.inputType || "radio")}"
-                      ${option.selected ? "checked" : ""}
-                    >
-                    <span class="rent-calculator__chip-text">${escapeHtml(option.label)}</span>
-                  </label>
-                `
-              )
-              .join("")}
+          <div class="rent-calculator__choice-layout">
+            <div class="rent-calculator__chip-row">
+              ${block.options
+                .map(
+                  (option) => `
+                    <label class="rent-calculator__chip${option.selected ? " is-active" : ""}">
+                      <input
+                        class="rent-calculator__chip-input"
+                        type="${escapeHtml(block.inputType || "radio")}"
+                        name="${escapeHtml(block.name)}"
+                        value="${escapeHtml(option.value)}"
+                        data-calculator-choice
+                        data-name="${escapeHtml(block.name)}"
+                        data-value="${escapeHtml(option.value)}"
+                        data-input-type="${escapeHtml(block.inputType || "radio")}"
+                        ${option.selected ? "checked" : ""}
+                      >
+                      <span class="rent-calculator__chip-text">${escapeHtml(option.label)}</span>
+                    </label>
+                  `
+                )
+                .join("")}
+            </div>
             ${
               block.badge
-                ? `<span class="rent-calculator__discount rent-calculator__discount--solid">${escapeHtml(
-                    block.badge.label
-                  )}</span>`
+                ? `<div class="rent-calculator__discount-row">
+                    <span class="rent-calculator__discount rent-calculator__discount--solid">${escapeHtml(
+                      block.badge.label
+                    )}</span>
+                  </div>`
                 : ""
             }
           </div>
@@ -315,66 +319,68 @@ export class RentCalculator {
 
       return `
         <section
-          class="rent-calculator__block"
+          class="rent-calculator__block${block.step ? "" : " rent-calculator__block--nested"}"
           style="view-transition-name: ${getTransitionName(`form-${block.id}`)};"
         >
           ${block.step ? this.renderBlockHeader(block) : ""}
           <div class="rent-calculator__counter-row">
-            <div class="rent-calculator__counter">
-              <button
-                class="rent-calculator__counter-button"
-                type="button"
-                aria-label="Уменьшить значение"
-                data-counter-trigger
-                data-counter-name="${escapeHtml(block.name)}"
-                data-counter-delta="-1"
-                data-counter-min="${block.min}"
-                data-counter-max="${block.max}"
-                ${isMin ? "disabled" : ""}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" aria-hidden="true">
-                  <path d="M3.09961 12.1002C2.76842 12.1 2.5 11.8309 2.5 11.4996C2.50021 11.1686 2.76855 10.9002 3.09961 10.9L19.9004 10.9C20.2315 10.9002 20.4998 11.1686 20.5 11.4996C20.5 11.8309 20.2316 12.1 19.9004 12.1002L3.09961 12.1002Z"/>
-                </svg>
-              </button>
-              <input
-                class="rent-calculator__counter-value"
-                type="text"
-                inputmode="numeric"
-                autocomplete="off"
-                name="${escapeHtml(block.name)}"
-                value="${escapeHtml(block.value)}"
-                aria-label="${escapeHtml(block.label || block.meta.label)}"
-                readonly
-                aria-readonly="true"
-                tabindex="-1"
-                data-counter-input
-                data-name="${escapeHtml(block.name)}"
-                data-counter-min="${block.min}"
-                data-counter-max="${block.max}"
-              >
-              <button
-                class="rent-calculator__counter-button"
-                type="button"
-                aria-label="Увеличить значение"
-                data-counter-trigger
-                data-counter-name="${escapeHtml(block.name)}"
-                data-counter-delta="1"
-                data-counter-min="${block.min}"
-                data-counter-max="${block.max}"
-                ${isMax ? "disabled" : ""}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" aria-hidden="true">
-                  <path d="M11.5 2.5C11.8311 2.5002 12.1004 2.76854 12.1006 3.09961V10.9004H19.9004C20.2315 10.9006 20.4998 11.1689 20.5 11.5C20.4998 11.8311 20.2315 12.1004 19.9004 12.1006H12.1006V19.9004C12.1004 20.2315 11.8311 20.4998 11.5 20.5C11.1689 20.4998 10.9006 20.2315 10.9004 19.9004V12.1006H3.09961C2.76854 12.1004 2.5002 11.8311 2.5 11.5C2.50021 11.1689 2.76855 10.9006 3.09961 10.9004H10.9004V3.09961C10.9006 2.76855 11.1689 2.50021 11.5 2.5Z"/>
-                </svg>
-              </button>
-            </div>
-            <div class="rent-calculator__counter-meta">
-              <div class="rent-calculator__counter-label">${escapeHtml(
-                block.meta.label
-              )}</div>
-              <div class="rent-calculator__counter-price">${escapeHtml(
-                block.meta.price
-              )}</div>
+            <div class="rent-calculator__counter-layout">
+              <div class="rent-calculator__counter">
+                <button
+                  class="rent-calculator__counter-button"
+                  type="button"
+                  aria-label="Уменьшить значение"
+                  data-counter-trigger
+                  data-counter-name="${escapeHtml(block.name)}"
+                  data-counter-delta="-1"
+                  data-counter-min="${block.min}"
+                  data-counter-max="${block.max}"
+                  ${isMin ? "disabled" : ""}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" aria-hidden="true">
+                    <path d="M3.09961 12.1002C2.76842 12.1 2.5 11.8309 2.5 11.4996C2.50021 11.1686 2.76855 10.9002 3.09961 10.9L19.9004 10.9C20.2315 10.9002 20.4998 11.1686 20.5 11.4996C20.5 11.8309 20.2316 12.1 19.9004 12.1002L3.09961 12.1002Z"/>
+                  </svg>
+                </button>
+                <input
+                  class="rent-calculator__counter-value"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  name="${escapeHtml(block.name)}"
+                  value="${escapeHtml(block.value)}"
+                  aria-label="${escapeHtml(block.label || block.meta.label)}"
+                  readonly
+                  aria-readonly="true"
+                  tabindex="-1"
+                  data-counter-input
+                  data-name="${escapeHtml(block.name)}"
+                  data-counter-min="${block.min}"
+                  data-counter-max="${block.max}"
+                >
+                <button
+                  class="rent-calculator__counter-button"
+                  type="button"
+                  aria-label="Увеличить значение"
+                  data-counter-trigger
+                  data-counter-name="${escapeHtml(block.name)}"
+                  data-counter-delta="1"
+                  data-counter-min="${block.min}"
+                  data-counter-max="${block.max}"
+                  ${isMax ? "disabled" : ""}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" aria-hidden="true">
+                    <path d="M11.5 2.5C11.8311 2.5002 12.1004 2.76854 12.1006 3.09961V10.9004H19.9004C20.2315 10.9006 20.4998 11.1689 20.5 11.5C20.4998 11.8311 20.2315 12.1004 19.9004 12.1006H12.1006V19.9004C12.1004 20.2315 11.8311 20.4998 11.5 20.5C11.1689 20.4998 10.9006 20.2315 10.9004 19.9004V12.1006H3.09961C2.76854 12.1004 2.5002 11.8311 2.5 11.5C2.50021 11.1689 2.76855 10.9006 3.09961 10.9004H10.9004V3.09961C10.9006 2.76855 11.1689 2.50021 11.5 2.5Z"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="rent-calculator__counter-meta">
+                <div class="rent-calculator__counter-label">${escapeHtml(
+                  block.meta.label
+                )}</div>
+                <div class="rent-calculator__counter-price">${escapeHtml(
+                  block.meta.price
+                )}</div>
+              </div>
             </div>
           </div>
         </section>
@@ -387,48 +393,48 @@ export class RentCalculator {
           class="rent-calculator__block"
           style="view-transition-name: ${getTransitionName(`form-${block.id}`)};"
         >
-          <div class="rent-calculator__header rent-calculator__header--toggle">
-            <div class="rent-calculator__header-main">
+          <div class="rent-calculator__toggle-layout">
+            <div class="rent-calculator__toggle-main">
               <span class="rent-calculator__step">${block.step}</span>
-              <div class="rent-calculator__header-text">
-                <span class="rent-calculator__label">${escapeHtml(
-                  block.label
-                )}</span>
-                ${
-                  block.tooltip?.text
-                    ? `
-                      <span class="rent-calculator__hint">
-                        <button
-                          class="rent-calculator__hint-button"
-                          type="button"
-                          aria-label="Пояснение"
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
-                            <circle cx="14" cy="14" r="14"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8281 11.8379C14.444 11.8379 16.7022 12.2485 15.6758 15.5332C14.6495 18.8172 14.1932 20.5394 14.8545 20.8711C15.265 21.0763 16.9074 20.4611 16.9082 20.8711C16.9082 21.0764 16.2922 22.103 13.2129 22.5137C10.134 22.9242 10.7745 19.1275 10.9541 18.4082C11.1594 17.587 13.0605 14.7929 12.1856 13.4805C11.9115 13.0703 10.432 13.6855 10.1328 13.6855C9.83703 13.6852 10.1267 12.8954 10.1328 12.8789C10.5433 12.0578 13.2116 11.838 13.8281 11.8379ZM15.0606 6.5C16.1943 6.50011 17.1133 7.32729 17.1133 8.34766C17.1133 9.36806 16.1943 10.1952 15.0606 10.1953C13.9267 10.1953 13.0069 9.36813 13.0069 8.34766C13.0069 7.32722 13.9267 6.5 15.0606 6.5Z"/>
-                          </svg>
-                        </button>
-                        <span class="rent-calculator__hint-popover" role="tooltip">
-                          ${escapeHtml(block.tooltip.text)}
-                        </span>
-                      </span>
-                    `
-                    : ""
-                }
-              </div>
+              <span class="rent-calculator__label">${escapeHtml(
+                block.label
+              )}</span>
             </div>
-            <label class="rent-calculator__switch${block.value ? " is-active" : ""}">
-              <input
-                class="rent-calculator__switch-input"
-                type="checkbox"
-                name="${escapeHtml(block.name)}"
-                value="1"
-                data-toggle-input
-                data-name="${escapeHtml(block.name)}"
-                ${block.value ? "checked" : ""}
-              >
-              <span class="rent-calculator__switch-thumb"></span>
-            </label>
+            <div class="rent-calculator__toggle-controls">
+              ${
+                block.tooltip?.text
+                  ? `
+                    <span class="rent-calculator__hint">
+                      <button
+                        class="rent-calculator__hint-button"
+                        type="button"
+                        aria-label="Пояснение"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+                          <circle cx="14" cy="14" r="14"/>
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8281 11.8379C14.444 11.8379 16.7022 12.2485 15.6758 15.5332C14.6495 18.8172 14.1932 20.5394 14.8545 20.8711C15.265 21.0763 16.9074 20.4611 16.9082 20.8711C16.9082 21.0764 16.2922 22.103 13.2129 22.5137C10.134 22.9242 10.7745 19.1275 10.9541 18.4082C11.1594 17.587 13.0605 14.7929 12.1856 13.4805C11.9115 13.0703 10.432 13.6855 10.1328 13.6855C9.83703 13.6852 10.1267 12.8954 10.1328 12.8789C10.5433 12.0578 13.2116 11.838 13.8281 11.8379ZM15.0606 6.5C16.1943 6.50011 17.1133 7.32729 17.1133 8.34766C17.1133 9.36806 16.1943 10.1952 15.0606 10.1953C13.9267 10.1953 13.0069 9.36813 13.0069 8.34766C13.0069 7.32722 13.9267 6.5 15.0606 6.5Z"/>
+                        </svg>
+                      </button>
+                      <span class="rent-calculator__hint-popover" role="tooltip">
+                        ${escapeHtml(block.tooltip.text)}
+                      </span>
+                    </span>
+                  `
+                  : ""
+              }
+              <label class="rent-calculator__switch${block.value ? " is-active" : ""}">
+                <input
+                  class="rent-calculator__switch-input"
+                  type="checkbox"
+                  name="${escapeHtml(block.name)}"
+                  value="1"
+                  data-toggle-input
+                  data-name="${escapeHtml(block.name)}"
+                  ${block.value ? "checked" : ""}
+                >
+                <span class="rent-calculator__switch-thumb"></span>
+              </label>
+            </div>
           </div>
         </section>
       `;
