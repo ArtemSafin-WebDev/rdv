@@ -11,6 +11,7 @@ const header = document.querySelector(".new-header");
 if (header) {
   const desktopMediaQuery = window.matchMedia(DESKTOP_MEDIA_QUERY);
   const body = document.body;
+  const pageWrapper = document.querySelector(".page-wrapper");
   const menuOpenButton = header.querySelector(".new-header__burger-btn");
   const menuCloseButtons = Array.from(header.querySelectorAll(".new-header__menu-close"));
   const searchButton = header.querySelector(".new-header__search-btn");
@@ -33,9 +34,19 @@ if (header) {
     searchForm.classList.remove(SEARCH_FORM_SHOWN_CLASS);
   };
 
+  const syncHeaderHeight = () => {
+    const headerHeight = `${header.getBoundingClientRect().height}px`;
+    document.documentElement.style.setProperty("--header-height", headerHeight);
+
+    if (pageWrapper) {
+      pageWrapper.style.setProperty("--header-height", headerHeight);
+    }
+  };
+
   const updateHeaderState = () => {
     const currentScrollY = window.scrollY;
     header.classList.toggle(TOP_HIDDEN_CLASS, currentScrollY > TOP_OFFSET_THRESHOLD);
+    syncHeaderHeight();
     isTicking = false;
   };
 
@@ -56,6 +67,7 @@ if (header) {
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", syncHeaderHeight);
 
   if (typeof desktopMediaQuery.addEventListener === "function") {
     desktopMediaQuery.addEventListener("change", onBreakpointChange);
@@ -171,5 +183,6 @@ if (header) {
   }
 
   updateHeaderState();
+  syncHeaderHeight();
   syncMegaScrollLock();
 }
