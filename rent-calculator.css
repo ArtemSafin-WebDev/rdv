@@ -181,6 +181,10 @@
   height: 3.2rem;
   justify-content: center;
   padding: 0;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .rent-calculator__counter-button svg {
@@ -188,6 +192,13 @@
   fill: currentColor;
   height: 2.3rem;
   width: 2.3rem;
+}
+
+.rent-calculator__counter-button:disabled {
+  color: #cfd3da;
+  cursor: default;
+  opacity: 0.55;
+  transform: none;
 }
 
 .rent-calculator__counter-value {
@@ -253,6 +264,17 @@
   width: 2.8rem;
 }
 
+.rent-calculator__hint-button,
+.rent-calculator__switch,
+.rent-calculator__submit {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
 .rent-calculator__hint-button svg {
   display: block;
   fill: #cfd3da;
@@ -302,9 +324,13 @@
   cursor: pointer;
   display: inline-flex;
   justify-content: flex-start;
+  overflow: hidden;
   padding: 0.2rem;
   position: relative;
-  transition: padding 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
   width: 5.6rem;
 }
 
@@ -316,21 +342,21 @@
   width: 0.1rem;
 }
 
-.rent-calculator__switch.is-active {
-  justify-content: flex-end;
-}
-
 .rent-calculator__switch-thumb {
   background: #cfd3da;
   border-radius: 0.6rem;
   display: block;
   height: 1.7rem;
-  transition: background-color 0.2s ease;
+  transform: translateX(0);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
   width: 3.3rem;
 }
 
 .rent-calculator__switch.is-active .rent-calculator__switch-thumb {
   background: #00bee4;
+  transform: translateX(1.9rem);
 }
 
 .rent-calculator__aside {
@@ -483,6 +509,37 @@
   padding: 0.5rem 2.4rem;
   text-align: center;
   width: 100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rent-calculator__chip:hover:not(.is-active) {
+    border-color: #00bee4;
+    box-shadow: 0 0 0 0.1rem #00bee4;
+  }
+
+  .rent-calculator__counter-button:hover:not(:disabled) {
+    color: #00bee4;
+    transform: scale(1.06);
+  }
+
+  .rent-calculator__hint-button:hover {
+    transform: scale(1.05);
+  }
+
+  .rent-calculator__hint-button:hover svg {
+    fill: #b8c1cd;
+  }
+
+  .rent-calculator__switch:hover {
+    border-color: #00bee4;
+    box-shadow: 0 0 0 0.1rem #00bee4;
+  }
+
+  .rent-calculator__submit:hover {
+    background: #00afcf;
+    box-shadow: 0 1rem 2.4rem rgba(0, 190, 228, 0.22);
+    transform: translateY(-0.1rem);
+  }
 }
 
 @media all and (max-width: 960px) {

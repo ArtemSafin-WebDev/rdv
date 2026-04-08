@@ -263,6 +263,9 @@ class RentCalculator {
     }
 
     if (block.type === "counter") {
+      const isMin = Number(block.value) <= Number(block.min);
+      const isMax = Number(block.value) >= Number(block.max);
+
       return `
         <section class="rent-calculator__block">
           ${block.step ? this.renderBlockHeader(block) : ""}
@@ -277,6 +280,7 @@ class RentCalculator {
                 data-counter-delta="-1"
                 data-counter-min="${block.min}"
                 data-counter-max="${block.max}"
+                ${isMin ? "disabled" : ""}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" aria-hidden="true">
                   <path d="M3.09961 12.1002C2.76842 12.1 2.5 11.8309 2.5 11.4996C2.50021 11.1686 2.76855 10.9002 3.09961 10.9L19.9004 10.9C20.2315 10.9002 20.4998 11.1686 20.5 11.4996C20.5 11.8309 20.2316 12.1 19.9004 12.1002L3.09961 12.1002Z"/>
@@ -307,6 +311,7 @@ class RentCalculator {
                 data-counter-delta="1"
                 data-counter-min="${block.min}"
                 data-counter-max="${block.max}"
+                ${isMax ? "disabled" : ""}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" aria-hidden="true">
                   <path d="M11.5 2.5C11.8311 2.5002 12.1004 2.76854 12.1006 3.09961V10.9004H19.9004C20.2315 10.9006 20.4998 11.1689 20.5 11.5C20.4998 11.8311 20.2315 12.1004 19.9004 12.1006H12.1006V19.9004C12.1004 20.2315 11.8311 20.4998 11.5 20.5C11.1689 20.4998 10.9006 20.2315 10.9004 19.9004V12.1006H3.09961C2.76854 12.1004 2.5002 11.8311 2.5 11.5C2.50021 11.1689 2.76855 10.9006 3.09961 10.9004H10.9004V3.09961C10.9006 2.76855 11.1689 2.50021 11.5 2.5Z"/>
