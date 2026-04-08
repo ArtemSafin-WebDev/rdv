@@ -1,5 +1,3 @@
-import { RentCalculatorMockApi } from "./rentCalculatorApi.js";
-
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -9,12 +7,11 @@ function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
-class RentCalculator {
+export class RentCalculator {
   constructor(root, api) {
     this.root = root;
     this.api = api;
     this.response = null;
-    this.state = null;
     this.isLoading = false;
     this.requestId = 0;
 
@@ -32,6 +29,48 @@ class RentCalculator {
     this.requestState();
   }
 
+  getForm() {
+    return this.root.querySelector("[data-rent-calculator-form]");
+  }
+
+  getCurrentBlock(name) {
+    return (
+      this.response?.regions?.form?.find((block) => block.name === name) || null
+    );
+  }
+
+  getRequestStateFromForm() {
+    const form = this.getForm();
+    const nextState = {};
+
+    if (!form || !this.response?.regions?.form) {
+      return nextState;
+    }
+
+    const formData = new FormData(form);
+
+    this.response.regions.form.forEach((block) => {
+      if (block.type === "choice-group") {
+        nextState[block.name] =
+          block.inputType === "checkbox"
+            ? formData.getAll(block.name)
+            : formData.get(block.name) || "";
+        return;
+      }
+
+      if (block.type === "counter") {
+        nextState[block.name] = Number(formData.get(block.name) || block.min || 0);
+        return;
+      }
+
+      if (block.type === "toggle") {
+        nextState[block.name] = formData.has(block.name);
+      }
+    });
+
+    return nextState;
+  }
+
   getCounterValue(name) {
     const input = this.root.querySelector(
       `[data-counter-input][name="${CSS.escape(name)}"]`
@@ -43,15 +82,19 @@ class RentCalculator {
       return parsedValue;
     }
 
-    return Number(this.state?.[name] || 0);
+    return Number(this.getCurrentBlock(name)?.value || 0);
   }
 
   async requestState(partialState = {}) {
+    const nextState = {
+      ...this.getRequestStateFromForm(),
+      ...partialState,
+    };
+
     this.isLoading = true;
     this.render();
 
     const requestId = ++this.requestId;
-    const nextState = { ...(this.state || {}), ...partialState };
     const response = await this.api.fetchState(nextState);
 
     if (requestId !== this.requestId) {
@@ -59,7 +102,6 @@ class RentCalculator {
     }
 
     this.response = response;
-    this.state = { ...response.state };
     this.isLoading = false;
     this.render();
   }
@@ -100,10 +142,6 @@ class RentCalculator {
 
       counterInput.value = String(nextValue);
 
-      if (this.state?.[name] === nextValue) {
-        return;
-      }
-
       this.requestState({ [name]: nextValue });
       return;
     }
@@ -130,25 +168,11 @@ class RentCalculator {
     }
 
     if (inputType === "checkbox") {
-      const currentValue = this.state?.[name];
-      const currentList = Array.isArray(currentValue)
-        ? currentValue
-        : currentValue
-          ? [currentValue]
-          : [];
-      const nextList = choiceInput.checked
-        ? [...new Set([...currentList, value])]
-        : currentList.filter((item) => item !== value);
-
-      this.requestState({ [name]: nextList });
+      this.requestState();
       return;
     }
 
-    if (this.state?.[name] === value) {
-      return;
-    }
-
-    this.requestState({ [name]: value });
+    this.requestState();
   }
 
   handleInput(event) {
@@ -177,16 +201,12 @@ class RentCalculator {
         bubbles: true,
         detail: {
           formData,
-          state: this.state,
-          requestUrl: this.response?.requestUrl || "",
         },
       })
     );
 
     window.console.info("rent-calculator submit", {
       formData: Object.fromEntries(formData.entries()),
-      state: this.state,
-      requestUrl: this.response?.requestUrl || "",
     });
   }
 
@@ -463,8 +483,3 @@ class RentCalculator {
     `;
   }
 }
-
-document.querySelectorAll("[data-rent-calculator]").forEach((root) => {
-  const calculator = new RentCalculator(root, new RentCalculatorMockApi());
-  calculator.init();
-});

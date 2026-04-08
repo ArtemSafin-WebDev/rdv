@@ -522,14 +522,6 @@
     transform: scale(1.06);
   }
 
-  .rent-calculator__hint-button:hover {
-    transform: scale(1.05);
-  }
-
-  .rent-calculator__hint-button:hover svg {
-    fill: #b8c1cd;
-  }
-
   .rent-calculator__switch:hover {
     border-color: #00bee4;
     box-shadow: 0 0 0 0.1rem #00bee4;
@@ -537,8 +529,6 @@
 
   .rent-calculator__submit:hover {
     background: #00afcf;
-    box-shadow: 0 1rem 2.4rem rgba(0, 190, 228, 0.22);
-    transform: translateY(-0.1rem);
   }
 }
 

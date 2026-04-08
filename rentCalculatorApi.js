@@ -99,16 +99,6 @@ function formatRub(value) {
   return `${new Intl.NumberFormat("ru-RU").format(value).replace(/\u00A0/g, " ")} ₽`;
 }
 
-function buildQueryString(query) {
-  return new URLSearchParams({
-    configuration: query.configuration,
-    users: String(query.users),
-    remoteDesktop: query.remoteDesktop ? "1" : "0",
-    remoteUsers: String(query.remoteUsers),
-    term: query.term,
-  }).toString();
-}
-
 function normalizeQuery(queryInput = {}) {
   const params =
     queryInput instanceof URLSearchParams
@@ -270,8 +260,6 @@ function buildResponse(query) {
 
   return {
     title: "Стоимость аренды 1С",
-    requestUrl: `/mock-api/rent-calculator?${buildQueryString(query)}`,
-    state: query,
     regions: {
       form: formBlocks,
       summary: [
