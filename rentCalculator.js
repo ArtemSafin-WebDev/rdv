@@ -13,6 +13,21 @@ function getTransitionName(name) {
     .replace(/[^a-z0-9_-]+/g, "-")}`;
 }
 
+const DEFAULT_CALCULATOR_TYPE = "rent-1c";
+const DEFAULT_CALCULATOR_TYPE_PARAM = "calculatorType";
+const CALCULATOR_TYPES = Object.freeze([
+  {
+    value: "rent-1c",
+    label: "Аренда 1С",
+  },
+  {
+    value: "dedicated-server",
+    label: "Выделенный сервер",
+  },
+]);
+
+let calculatorInstanceId = 0;
+
 export class RentCalculator {
   constructor(root, api) {
     this.root = root;
@@ -20,11 +35,25 @@ export class RentCalculator {
     this.response = null;
     this.isLoading = false;
     this.requestId = 0;
+    this.instanceId = ++calculatorInstanceId;
+    this.calculatorTypeParam =
+      root.dataset.rentCalculatorTypeParam?.trim() ||
+      DEFAULT_CALCULATOR_TYPE_PARAM;
+    this.calculatorTypes = CALCULATOR_TYPES;
+    this.currentCalculatorType = this.normalizeCalculatorType(
+      root.dataset.rentCalculatorDefaultType?.trim()
+    );
 
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  normalizeCalculatorType(value) {
+    return this.calculatorTypes.some((item) => item.value === value)
+      ? value
+      : DEFAULT_CALCULATOR_TYPE;
   }
 
   canUseViewTransitions() {
@@ -113,6 +142,7 @@ export class RentCalculator {
     const nextState = {
       ...this.getRequestStateFromForm(),
       ...partialState,
+      [this.calculatorTypeParam]: this.currentCalculatorType,
     };
 
     this.isLoading = true;
@@ -152,6 +182,24 @@ export class RentCalculator {
   }
 
   handleChange(event) {
+    const calculatorTypeInput = event.target.closest(
+      "[data-calculator-type-input]"
+    );
+
+    if (calculatorTypeInput) {
+      const nextCalculatorType = this.normalizeCalculatorType(
+        calculatorTypeInput.value
+      );
+
+      if (nextCalculatorType === this.currentCalculatorType) {
+        return;
+      }
+
+      this.currentCalculatorType = nextCalculatorType;
+      this.requestState();
+      return;
+    }
+
     const counterInput = event.target.closest("[data-counter-input]");
 
     if (counterInput && !this.isLoading) {
@@ -237,6 +285,7 @@ export class RentCalculator {
   render() {
     if (!this.response) {
       this.root.innerHTML = `
+        ${this.renderCalculatorTypeNav()}
         <div class="rent-calculator__shell is-loading">
         </div>
       `;
@@ -244,7 +293,13 @@ export class RentCalculator {
     }
 
     this.root.innerHTML = `
+      ${this.renderCalculatorTypeNav()}
       <form class="rent-calculator__shell${this.isLoading ? " is-loading" : ""}" data-rent-calculator-form novalidate>
+        <input
+          type="hidden"
+          name="${escapeHtml(this.calculatorTypeParam)}"
+          value="${escapeHtml(this.currentCalculatorType)}"
+        >
         <div class="rent-calculator__layout">
           <div class="rent-calculator__main">
             <h2 class="rent-calculator__title">${escapeHtml(
@@ -265,6 +320,41 @@ export class RentCalculator {
           </aside>
         </div>
       </form>
+    `;
+  }
+
+  renderCalculatorTypeNav() {
+    const groupName = `rent-calculator-type-${this.instanceId}`;
+
+    return `
+      <fieldset class="rent-calculator__type-nav">
+        <legend class="rent-calculator__type-legend">Тип калькулятора</legend>
+        <div class="rent-calculator__type-list">
+          ${this.calculatorTypes
+            .map((item) => {
+              const isActive = item.value === this.currentCalculatorType;
+
+              return `
+                <label
+                  class="rent-calculator__type-button${isActive ? " is-active" : ""}"
+                >
+                  <input
+                    class="rent-calculator__type-input"
+                    type="radio"
+                    name="${escapeHtml(groupName)}"
+                    value="${escapeHtml(item.value)}"
+                    data-calculator-type-input
+                    ${isActive ? "checked" : ""}
+                  >
+                  <span class="rent-calculator__type-text">${escapeHtml(
+                    item.label
+                  )}</span>
+                </label>
+              `;
+            })
+            .join("")}
+        </div>
+      </fieldset>
     `;
   }
 

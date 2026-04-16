@@ -47,11 +47,12 @@
 Пример:
 
 ```http
-GET /api/rent-calculator?configuration=trade&users=3&remoteDesktop=1&remoteUsers=5&term=6m
+GET /api/rent-calculator?calculatorType=rent-1c&configuration=trade&users=3&remoteDesktop=1&remoteUsers=5&term=6m
 ```
 
 ### Query-параметры
 
+- `calculatorType`: тип калькулятора, сейчас фронтенд отправляет `rent-1c` или `dedicated-server`
 - `configuration`: код конфигурации
 - `users`: количество обычных пользователей
 - `remoteDesktop`: `0` или `1`
