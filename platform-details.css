@@ -85,7 +85,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 5.2rem;
+
   border-radius: 1rem;
   background: #fff;
   color: #080d26;
@@ -115,15 +115,125 @@
   outline-offset: 0.3rem;
 }
 
-.platform-details__image {
+.platform-details__media {
   position: absolute;
   z-index: 0;
   top: 0;
   right: 0;
   height: 100%;
   width: auto;
+  pointer-events: none;
+}
+
+.platform-details__image {
+  display: block;
+  height: 100%;
+  width: auto;
   max-width: none;
   object-fit: contain;
   object-position: right center;
-  pointer-events: none;
+}
+
+@media all and (max-width: 1200px) {
+  .platform-details__card {
+    padding: 4rem;
+  }
+
+  .platform-details__content {
+    max-width: calc(100% - 18rem);
+  }
+}
+
+@media all and (max-width: 900px) {
+  .platform-details__content {
+    max-width: none;
+  }
+
+  .platform-details__media {
+    opacity: 0.28;
+  }
+}
+
+@media all and (max-width: 640px) {
+  .platform-details {
+    margin-bottom: 5rem;
+  }
+
+  .platform-details .container {
+    padding-left: 2.1rem;
+    padding-right: 2.1rem;
+  }
+
+  .platform-details__list {
+    gap: 1.2rem;
+  }
+
+  .platform-details__card {
+    border-radius: 0.8rem;
+    padding: 2.2rem 2.2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .platform-details__content {
+    max-width: none;
+    gap: 1.6rem;
+  }
+
+  .platform-details__copy {
+    gap: 1.2rem;
+  }
+
+  .platform-details__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .platform-details__text {
+    font-size: 1.2rem;
+    line-height: 120%;
+  }
+
+  .platform-details__text p + p {
+    margin-top: 1rem;
+  }
+
+  .platform-details__buttons {
+    gap: 0.8rem;
+  }
+
+  .platform-details__button {
+    border-radius: 0.5rem;
+    padding: 0.8rem 0.8rem;
+    color: #002740;
+    border-color: #064360;
+    font-size: 0.9rem;
+  }
+
+  .platform-details__button:hover,
+  .platform-details__button:focus-visible {
+    background: #064360;
+    border-color: #064360;
+    color: #fff;
+  }
+
+  .platform-details__media {
+    position: static;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 304 / 138;
+    opacity: 1;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .platform-details__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
